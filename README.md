@@ -42,18 +42,64 @@ presence and more time on their actual business.**
 
 ## Project status
 
-🚧 **Early development.** Frontdoor is just getting started. Features, structure, and
-setup instructions will be documented here as the project takes shape.
+🚧 **Early development.** Frontdoor is just getting started. This repo currently hosts
+the **marketing landing page** (Next.js + Tailwind CSS); the product itself is in
+active development. More will be documented here as the project takes shape.
 
 ## Getting started
 
-> Setup instructions will be added once the application stack is in place.
+The web client is a [Next.js](https://nextjs.org) app (App Router · TypeScript ·
+Tailwind CSS v4). You'll need **Node.js 18.18+** (Node 20+ recommended).
 
 ```bash
 # Clone the repository
 git clone https://github.com/engrkenjitanaka/frontdoorapp-web.git
 cd frontdoorapp-web
+
+# Install dependencies
+npm install
+
+# Run the dev server → http://localhost:3000
+npm run dev
+
+# Production build
+npm run build && npm start
 ```
+
+### Project structure
+
+```text
+app/            App Router: layout (fonts + SEO metadata), page, global styles
+  globals.css   Tailwind v4 brand theme (@theme tokens) + base styles
+  icon.svg      Favicon — the Frontdoor "open door" mark
+components/     Landing sections (Header, Hero, Features, Mission, CTA, Footer) + shared UI
+public/         Logo assets (also used for OpenGraph / social link previews)
+```
+
+## Deploying to Vercel
+
+This app deploys to [Vercel](https://vercel.com) with **zero configuration** — Vercel
+auto-detects Next.js.
+
+**Option A — Git (recommended):** push to GitHub, then import the repo at
+[vercel.com/new](https://vercel.com/new). No build settings to change; every push to
+`main` ships to production.
+
+**Option B — Vercel CLI:**
+
+```bash
+npm i -g vercel
+vercel          # deploy a preview
+vercel --prod   # deploy to production
+```
+
+### Early-access form
+
+The hero and CTA email capture is built, but not yet connected to a backend. To
+collect real signups, point `NEXT_PUBLIC_WAITLIST_ENDPOINT` at a URL that accepts a
+`POST { email }` (a Next.js Route Handler, Formspree, Resend, etc.) — in Vercel, add
+it under **Project → Settings → Environment Variables**. Until then the form
+optimistically confirms, so the page stays fully usable.
 
 ## Contributing
 

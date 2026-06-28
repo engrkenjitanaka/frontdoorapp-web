@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------------------
+   Frontdoor brand theme (Tailwind v4 CSS-first config)
+   Palette + type scale derived from the frontdoorapp.co logo:
+   deep navy ink + signature blue, on white.
+---------------------------------------------------------------------------- */
+@theme {
+  /* Brand colors */
+  --color-ink: #0f1f47;          /* deep navy — primary text & the door */
+  --color-ink-soft: #41507a;     /* muted navy — secondary text */
+  --color-ink-deep: #0a1430;     /* near-black navy — dark sections */
+  --color-brand: #2563eb;        /* signature blue — ".co" & motion lines */
+  --color-brand-strong: #1d4ed8; /* hover / pressed */
+  --color-brand-light: #3b82f6;
+  --color-brand-glow: #60a5fa;
+  --color-mist: #eef3ff;         /* faint blue tint — icon chips */
+  --color-cloud: #f6f8fc;        /* off-white — alternating sections */
+  --color-line: #e6ebf4;         /* hairline borders */
+
+  /* Typography (wired to next/font CSS variables in layout.tsx) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Custom animations */
+  --animate-rise: rise 0.7s var(--ease-out-soft) both;
+  --animate-float: float 7s ease-in-out infinite;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-brand) 24%, transparent);
+  }
+
+  /* Offset anchor targets so they aren't hidden under the sticky header */
+  :target {
+    scroll-margin-top: 6rem;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  ::before,
+  ::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
