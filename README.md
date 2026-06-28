@@ -42,9 +42,10 @@ presence and more time on their actual business.**
 
 ## Project status
 
-🚧 **Early development.** Frontdoor is just getting started. This repo currently hosts
-the **marketing landing page** (Next.js + Tailwind CSS); the product itself is in
-active development. More will be documented here as the project takes shape.
+🚧 **Early development.** The **marketing landing page is now live at
+[frontdoorapp.co](https://frontdoorapp.co)** (Next.js + Tailwind CSS, hosted on Vercel);
+the Frontdoor product itself is in active development. More will be documented here as
+the project takes shape.
 
 ## Getting started
 
@@ -78,14 +79,13 @@ public/         Logo assets (also used for OpenGraph / social link previews)
 
 ## Deploying to Vercel
 
-This app deploys to [Vercel](https://vercel.com) with **zero configuration** — Vercel
-auto-detects Next.js.
+🟢 **Live in production: [frontdoorapp.co](https://frontdoorapp.co)** — deployed on
+[Vercel](https://vercel.com) with zero configuration (Vercel auto-detects Next.js).
 
-**Option A — Git (recommended):** push to GitHub, then import the repo at
-[vercel.com/new](https://vercel.com/new). No build settings to change; every push to
-`main` ships to production.
+The project is linked to Vercel and **auto-deploys on every push to `main`**; pull
+requests get their own preview URLs. There are no build settings to change.
 
-**Option B — Vercel CLI:**
+To deploy manually with the [Vercel CLI](https://vercel.com/docs/cli):
 
 ```bash
 npm i -g vercel

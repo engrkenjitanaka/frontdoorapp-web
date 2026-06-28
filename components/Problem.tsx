@@ -33,13 +33,10 @@ export function Problem() {
 
       <div className="mx-auto mt-10 max-w-2xl px-5 sm:px-8">
         <div className="flex flex-wrap justify-center gap-2.5">
-          {scattered.map((item, i) => (
+          {scattered.map((item) => (
             <span
               key={item}
               className="rounded-xl border border-line bg-cloud px-3.5 py-2 text-sm font-medium text-ink-soft"
-              style={{
-                transform: `rotate(${(i % 2 === 0 ? -1 : 1) * (1 + (i % 3))}deg)`,
-              }}
             >
               {item}
             </span>

@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 `frontdoorapp-web` is the web client for **Frontdoor** (frontdoorapp.co) — a digital-presence platform that helps small-business owners manage their online presence in one place. Right now the repo contains the **marketing landing page**; the product itself is in early development. Product and brand narrative live in [README.md](README.md); this file owns engineering posture and decisions.
 
-**Posture (2026-06):** a static, single-page Next.js site. No backend, database, auth, or API routes yet. Deploys to Vercel with zero configuration.
+**Posture (2026-06):** a static, single-page Next.js site — **live in production at [frontdoorapp.co](https://frontdoorapp.co)** on Vercel (zero-config; auto-deploys on every push to `main`). No backend, database, auth, or API routes yet.
 
 ## Commands
 
@@ -20,7 +20,7 @@ npm start            # serve the production build (run after build)
 ```
 
 - **There is no test runner and no ESLint config.** `npm run build` is the de-facto quality gate: it type-checks and fails on type errors. Run it before declaring a change done.
-- **Deploy:** push to GitHub → import at vercel.com/new (auto-detected, no build settings), or `vercel --prod` via CLI.
+- **Deploy:** linked to Vercel and **live at frontdoorapp.co** — every push to `main` auto-deploys to production (PRs get preview URLs). Manual deploy: `vercel --prod` via the Vercel CLI.
 
 ## Architecture (big picture)
 
@@ -47,6 +47,7 @@ Next.js 15 **App Router** + TypeScript + **Tailwind CSS v4**. Every route is sta
 
 Newest on top. Each entry = the decision + the *why* (and the option rejected, if any). Don't rewrite history; if a decision is reversed, add a new entry noting it.
 
+- **2026-06-28 — Shipped: live at [frontdoorapp.co](https://frontdoorapp.co).** Deployed to Vercel (zero-config; auto-deploys on push to `main`). ⚠️ Note: this went public **before** the open security-headers and waitlist-backend items were done — they are now *live gaps*, not pre-launch TODOs (see **Known gaps**).
 - **2026-06-28 — Stack: Next.js + Tailwind v4** (over plain static HTML or Vite/React). The repo is meant to grow into the real web client, not stay a one-off marketing page. Next.js is the canonical zero-config Vercel target, leaves room for a future dashboard/auth/API routes, and has the strongest SEO/metadata story. Tailwind v4's CSS-first `@theme` keeps brand tokens in one place (`globals.css`).
 - **2026-06-28 — Email capture is a documented placeholder.** `EmailCapture.tsx` optimistically shows success and only POSTs if `NEXT_PUBLIC_WAITLIST_ENDPOINT` is set. Why: ship a usable page without committing to a backend. **Before launch:** point that env var at a real endpoint (Route Handler / Formspree / Resend); the endpoint must do server-side validation, rate-limiting, and abuse protection — the client does none. A real secret (e.g. an API key) must **not** use the `NEXT_PUBLIC_` prefix, which would ship it in the browser bundle.
 - **2026-06-28 — Logo is rendered as vector, not the raster file.** Header/footer use the hand-built `DoorMark` SVG + a styled wordmark for crispness and no baked-in whitespace; the raster JPGs are reserved for social/OG previews and the apple icon.
@@ -55,8 +56,11 @@ Newest on top. Each entry = the decision + the *why* (and the option rejected, i
 
 ## Known gaps / TODO posture
 
-- Email waitlist backend is not wired (see Decision Log).
-- Security response headers before public launch.
+**Now live — these gaps are in production** (the site launched before they landed):
+- Email waitlist backend is not wired: the live form optimistically confirms but **drops signups** (see Decision Log). Set `NEXT_PUBLIC_WAITLIST_ENDPOINT` to fix.
+- No security response headers (CSP / `X-Frame-Options` / HSTS) — add via `headers()` in `next.config.ts`.
+
+Other:
 - No tests or linter yet — `npm run build` is the only automated gate.
 - License is **TBD** (per README) — don't assume an OSS license.
 
