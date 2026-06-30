@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const TIMES = [
   "5:00 PM",
@@ -15,9 +15,24 @@ const TIMES = [
 const inputCls =
   "h-12 w-full min-w-0 rounded-xl border border-line bg-white px-3.5 text-base text-ink outline-none transition focus:border-brand focus:ring-4 focus:ring-brand/15";
 
+const fmt = (d: Date) =>
+  `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+
 export function BookingForm() {
   const [done, setDone] = useState(false);
   const [name, setName] = useState("");
+  const [date, setDate] = useState("");
+  const [minDate, setMinDate] = useState("");
+
+  // Default the reservation to tomorrow (and disallow past dates). Done after
+  // mount so the static prerender and the client agree (no hydration mismatch).
+  useEffect(() => {
+    const today = new Date();
+    const tomorrow = new Date();
+    tomorrow.setDate(today.getDate() + 1);
+    setMinDate(fmt(today));
+    setDate(fmt(tomorrow));
+  }, []);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -51,7 +66,15 @@ export function BookingForm() {
     <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 sm:grid-cols-2">
       <label className="block">
         <span className="mb-1.5 block text-sm font-medium text-ink">Date</span>
-        <input type="date" required className={inputCls} aria-label="Reservation date" />
+        <input
+          type="date"
+          required
+          min={minDate}
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          className={`${inputCls} appearance-none`}
+          aria-label="Reservation date"
+        />
       </label>
       <label className="block">
         <span className="mb-1.5 block text-sm font-medium text-ink">Time</span>
@@ -84,7 +107,7 @@ export function BookingForm() {
       </label>
       <button
         type="submit"
-        className="inline-flex h-12 items-center justify-center rounded-xl bg-brand px-6 text-base font-semibold text-white shadow-lg shadow-brand/25 transition hover:bg-brand-strong focus:outline-none focus:ring-4 focus:ring-brand/30 sm:col-span-2"
+        className="inline-flex h-12 items-center justify-center rounded-xl bg-brand px-6 text-base font-semibold text-white shadow-lg shadow-brand/25 transition active:scale-[0.98] hover:bg-brand-strong focus:outline-none focus:ring-4 focus:ring-brand/30 sm:col-span-2"
       >
         Request a table
       </button>

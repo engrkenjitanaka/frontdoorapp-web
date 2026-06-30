@@ -3,134 +3,103 @@
 </p>
 
 <p align="center">
-  <b>Your business's digital front door — set up once, focus on what you do best.</b>
+  <b>You do what you do best. We make the world see it.</b>
 </p>
 
 <p align="center">
-  A digital presence platform that helps business owners build and manage their<br>
-  online presence, so they can spend more time running their business.
+  The managed digital presence for businesses — set up for you, run on autopilot.
 </p>
 
 ---
 
-> This repository (`frontdoorapp-web`) is the web client for **Frontdoor**.
+> This repository (`frontdoorapp-web`) is the web client for **frontdoorapp.co** — currently the marketing landing page plus a live example of a Frontdoor presence page.
 
-## The problem
+## What frontdoorapp.co does
 
-Most business owners are great at their craft but stretched thin when it comes to the
-digital world — websites, listings, social media links, reviews, and everything else that
-makes a business look credible online. Piecing it all together (or paying several
-different services to) is time-consuming and easy to neglect. The result: great
-businesses getting left behind simply because they couldn't keep up online — even
-though, these days, being online is a necessity for any business to thrive.
+A digital presence — website, social media, reviews, business email, content — is table
+stakes for any business to be found and trusted. For most owners that means stitching
+together 6+ tools, hiring a freelancer, or doing nothing at all. It's a tax on the people
+least equipped to pay it.
 
-## What Frontdoor does
+frontdoorapp.co does it **for** them — setting up a business's entire online presence,
+then keeping it running:
 
-Frontdoor brings a business's online presence into one place and keeps it simple to
-manage:
+- **We set it up** — domain, account claiming, email migration, brand-voice capture, first content.
+- **Automation keeps it running** — posting across channels, draft-first replies, info kept current.
+- **A human team has your back** — onboarding and ongoing help for anything tricky.
 
-- 🚪 **One home for your presence** — a clean, professional page that represents your
-  business online.
-- ⚡ **Streamlined setup** — get up and running quickly without wrestling with multiple
-  tools.
-- 🧩 **Everything in one place** — manage your key business info, links, and updates
-  from a single dashboard.
-- 🌱 **Built to grow with you** — start simple and add more as your business needs it.
+**What's included:** Landing Page · Social Media Presence · Business Email · Analytics ·
+Content Generation · Social Media Automation · Natural-language Automations · Platform
+Support.
 
-The goal is straightforward: **let owners spend less time managing their online
-presence and more time on their actual business.**
+One front door, every channel, near-zero effort from the owner.
 
-## Project status
+## This repo
 
-🚧 **Early development.** The **marketing landing page is now live at
-[frontdoorapp.co](https://frontdoorapp.co)** (Next.js + Tailwind CSS, hosted on Vercel);
-the Frontdoor product itself is in active development. More will be documented here as
-the project takes shape.
+A [Next.js](https://nextjs.org) site (App Router · TypeScript · Tailwind CSS v4),
+statically prerendered and deployed on Vercel.
+
+- **Marketing landing page** (`/`) — the hero, problem, how-it-works, the eight services,
+  and an early-access waitlist. Supports light/dark mode (follows your system, with a
+  toggle in the navbar).
+- **Live example** (`/demo`) — a mock "Frontdoor page" for a sample business (Bella's
+  Bakery): photo cover, menu, reservations, and reviews — a "this is what you get" demo.
+
+> 🚧 **Early development.** The site is live at [frontdoorapp.co](https://frontdoorapp.co);
+> the product itself is in active development.
 
 ## Getting started
 
-The web client is a [Next.js](https://nextjs.org) app (App Router · TypeScript ·
-Tailwind CSS v4). You'll need **Node.js 18.18+** (Node 20+ recommended).
+You'll need **Node.js 18.18+** (Node 20+ recommended).
 
 ```bash
-# Clone the repository
 git clone https://github.com/engrkenjitanaka/frontdoorapp-web.git
 cd frontdoorapp-web
 
-# Install dependencies
-npm install
-
-# Run the dev server → http://localhost:3000
-npm run dev
-
-# Production build
-npm run build && npm start
+npm install                  # install dependencies
+npm run dev                  # dev server → http://localhost:3000
+npm run build && npm start   # production build, then serve it
 ```
+
+`npm run build` also runs the TypeScript type-check — it's the de-facto quality gate
+(there's no separate test runner or linter yet).
 
 ### Project structure
 
 ```text
-app/            App Router: layout (fonts + SEO metadata), page, global styles
-  globals.css   Tailwind v4 brand theme (@theme tokens) + base styles
-  icon.svg      Favicon — the Frontdoor "open door" mark
-components/     Landing sections (Header, Hero, Features, Mission, CTA, Footer) + shared UI
-public/         Logo assets (also used for OpenGraph / social link previews)
+app/                 App Router — layout (fonts, SEO metadata, no-flash theme script),
+                     page.tsx, globals.css, demo/ (the /demo example)
+  globals.css        Tailwind v4 @theme brand tokens, dark-mode rules, keyframes
+components/          Landing sections (Header, Hero, …) + ThemeToggle + shared UI
+  demo/              Demo-only pieces (the Menu detail modal, BookingForm)
+public/              Logo lockup + demo photos
 ```
 
 ## Deploying to Vercel
 
-🟢 **Live in production: [frontdoorapp.co](https://frontdoorapp.co)** — deployed on
-[Vercel](https://vercel.com) with zero configuration (Vercel auto-detects Next.js).
-
-The project is linked to Vercel and **auto-deploys on every push to `main`**; pull
-requests get their own preview URLs. There are no build settings to change.
-
-To deploy manually with the [Vercel CLI](https://vercel.com/docs/cli):
+🟢 **Live at [frontdoorapp.co](https://frontdoorapp.co)** — deployed on
+[Vercel](https://vercel.com) with **zero configuration** (Vercel auto-detects Next.js).
+The project auto-deploys on every push to `main`; pull requests get their own preview
+URLs. To deploy manually:
 
 ```bash
 npm i -g vercel
-vercel          # deploy a preview
-vercel --prod   # deploy to production
+vercel          # preview
+vercel --prod   # production
 ```
 
 ### Early-access form
 
-The hero and CTA email capture is built, but not yet connected to a backend. To
-collect real signups, point `NEXT_PUBLIC_WAITLIST_ENDPOINT` at a URL that accepts a
-`POST { email }` (a Next.js Route Handler, Formspree, Resend, etc.) — in Vercel, add
-it under **Project → Settings → Environment Variables**. Until then the form
-optimistically confirms, so the page stays fully usable.
+The waitlist form is built but not yet wired to a backend. To collect real signups, point
+`NEXT_PUBLIC_WAITLIST_ENDPOINT` at a URL that accepts a `POST { email }` (a Next.js Route
+Handler, Formspree, Resend, etc.) — set it under **Project → Settings → Environment
+Variables** in Vercel. Until then the form optimistically confirms, so the page stays
+fully usable.
 
 ## Contributing
 
-This project is in its early days. If you'd like to get involved, feel free to open an
-issue to start a conversation.
+Early days — if you'd like to get involved, open an issue to start a conversation.
 
 ## License
 
-License to be determined.
-
----
-
-## Brand assets
-
-Logo variants live in [`/assets`](assets):
-
-<table>
-  <tr>
-    <td align="center" width="50%">
-      <img src="assets/logo_banner.jpg" alt="Banner logo" width="260"><br>
-      <sub><b>logo_banner.jpg</b><br>Horizontal — README & site headers</sub>
-    </td>
-    <td align="center" width="25%">
-      <img src="assets/logo_square.jpg" alt="Square logo" width="120"><br>
-      <sub><b>logo_square.jpg</b><br>Square — app icon & cards</sub>
-    </td>
-    <td align="center" width="25%">
-      <img src="assets/logo_circle.jpg" alt="Circle logo" width="120"><br>
-      <sub><b>logo_circle.jpg</b><br>Circle — avatars & social</sub>
-    </td>
-  </tr>
-</table>
-
-<p align="center"><sub><b>frontdoorapp.co</b> — open the door to your business's online presence.</sub></p>
+To be determined.
