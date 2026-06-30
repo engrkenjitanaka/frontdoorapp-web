@@ -30,8 +30,17 @@ export async function POST(request: Request) {
   }
 
   // 4) Store. Sorted set dedupes by email and keeps signup time (view in the Upstash console).
+  // Vercel's Upstash integration names the vars with the store prefix ("frontdoorapp_").
+  // Use the REST URL + write token (NOT the read-only token).
+  const url = process.env.frontdoorapp_KV_REST_API_URL ?? process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.frontdoorapp_KV_REST_API_TOKEN ?? process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) {
+    console.error("waitlist: missing Upstash REST env vars");
+    return NextResponse.json({ error: "Something went wrong." }, { status: 500 });
+  }
+
   try {
-    const redis = Redis.fromEnv();
+    const redis = new Redis({ url, token });
     await redis.zadd("waitlist", { score: Date.now(), member: email });
   } catch (err) {
     console.error("waitlist store failed:", err);

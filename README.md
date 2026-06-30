@@ -96,12 +96,11 @@ drops honeypot hits, validates the email, and stores it in **Upstash Redis** —
 set (`waitlist`) keyed by signup time, so it dedupes and you can view/export it in the
 Upstash console.
 
-**One-time setup** (provisions the env vars automatically):
-
-```bash
-vercel install upstash       # wires UPSTASH_REDIS_REST_URL + UPSTASH_REDIS_REST_TOKEN
-vercel env pull .env.local   # only needed to exercise the route locally
-```
+**One-time setup:** add **Upstash for Redis** to the project (Vercel dashboard → **Storage**
+→ **Create Database** → **Upstash**, or `vercel install upstash`). Vercel injects the
+connection env vars named with the store prefix (e.g. `frontdoorapp_KV_REST_API_URL` /
+`frontdoorapp_KV_REST_API_TOKEN`) — the route reads those, falling back to the standard
+`UPSTASH_REDIS_REST_*` names — then **redeploy** so they take effect.
 
 BotID needs no env vars — its invisible protection activates automatically once deployed
 on Vercel (in local dev it runs in basic mode). The Upstash tokens are server-only (never
