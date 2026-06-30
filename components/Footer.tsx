@@ -7,7 +7,7 @@ export function Footer() {
         <div className="max-w-sm">
           <Wordmark tone="white" />
           <p className="mt-4 text-sm leading-relaxed text-white/60">
-            Open the door to your business’s online presence — we set it up and keep it
+            Open the door to your business’s online presence. We set it up and keep it
             running, so you can focus on what you do best.
           </p>
         </div>

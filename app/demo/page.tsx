@@ -3,9 +3,9 @@ import { BookingForm } from "@/components/demo/BookingForm";
 import { Menu } from "@/components/demo/Menu";
 
 export const metadata: Metadata = {
-  title: "Bella’s Bakery — a live frontdoorapp.co example",
+  title: "Bella’s Bakery · a live frontdoorapp.co example",
   description:
-    "A sample Frontdoor presence: website, menu, booking, and reviews — set up and run by frontdoorapp.co.",
+    "A sample Frontdoor presence: website, menu, booking, and reviews, set up and run by frontdoorapp.co.",
   robots: { index: false, follow: false },
 };
 
@@ -23,12 +23,12 @@ const galleryImgs = [
 
 const reviews: { name: string; rating: number; when: string; text: string }[] = [
   { name: "Maria G.", rating: 5, when: "2 weeks ago", text: "The almond croissant is the best I’ve had outside of Paris. Worth the trip across town." },
-  { name: "Devon R.", rating: 5, when: "1 month ago", text: "Booked a table for six through their page in seconds. Sourdough sells out fast — get there early!" },
+  { name: "Devon R.", rating: 5, when: "1 month ago", text: "Booked a table for six through their page in seconds. Sourdough sells out fast, so get there early!" },
   { name: "Priya S.", rating: 4, when: "1 month ago", text: "Cozy spot, friendly staff, fantastic coffee. Only wish they were open later on Sundays." },
   { name: "Marcus T.", rating: 5, when: "3 weeks ago", text: "That morning bun. I dream about it. The cinnamon-and-orange thing they do should be illegal." },
   { name: "Lena K.", rating: 5, when: "2 months ago", text: "Been coming every Saturday for a year. The multigrain makes the best toast you’ll ever have." },
   { name: "Sam W.", rating: 4, when: "1 week ago", text: "Great cappuccino and a properly crusty baguette. Gets busy at 8am, but the line moves fast." },
-  { name: "Joy A.", rating: 5, when: "2 months ago", text: "Booked a birthday brunch here — so accommodating, and the spread was absolutely gorgeous." },
+  { name: "Joy A.", rating: 5, when: "2 months ago", text: "Booked a birthday brunch here. So accommodating, and the spread was absolutely gorgeous." },
   { name: "Hiro N.", rating: 5, when: "5 weeks ago", text: "The pour-over rotates weekly and they actually know what they’re brewing. Real coffee people." },
 ];
 
@@ -141,7 +141,7 @@ export default function DemoPage() {
             <h2 className="font-display text-2xl font-extrabold text-ink">Baked from scratch, every morning.</h2>
             <p className="mt-3 leading-relaxed text-ink-soft">
               A neighborhood bakery making naturally leavened breads and laminated pastries
-              from scratch every day. Family-run since 2014 — pull up a chair, the coffee’s hot,
+              from scratch every day. Family-run since 2014. Pull up a chair, the coffee’s hot,
               and the sourdough’s still warm.
             </p>
             <div className="mt-5 flex flex-wrap gap-2.5">
@@ -176,7 +176,7 @@ export default function DemoPage() {
       <section id="menu" className="scroll-mt-24 border-b border-line bg-cloud">
         <div className="mx-auto max-w-5xl px-5 py-12 sm:px-8">
           <h2 className="font-display text-3xl font-extrabold text-ink">Menu</h2>
-          <p className="mt-1 text-ink-soft">Fresh daily — tap any item for details.</p>
+          <p className="mt-1 text-ink-soft">Fresh daily. Tap any item for details.</p>
           <Menu />
         </div>
       </section>
@@ -261,7 +261,7 @@ export default function DemoPage() {
           <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-sm text-white/50 sm:flex-row">
             <p>© 2026 Bella’s Bakery</p>
             <a href="/#early-access" className="text-center font-medium text-white/70 transition hover:text-white sm:text-right">
-              Powered by <strong className="text-white">frontdoorapp.co</strong> — get this for your business →
+              Powered by <strong className="text-white">frontdoorapp.co</strong>. Get this for your business →
             </a>
           </div>
         </div>

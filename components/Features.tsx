@@ -12,12 +12,12 @@ import {
 const services = [
   {
     title: "Landing Page",
-    body: "Business info, hours, contact, Google Maps, menus, services, and social media links — on one clean page.",
+    body: "Business info, hours, contact, Google Maps, menus, services, and social media links, all on one clean page.",
     icon: <IconWindow className="h-6 w-6" />,
   },
   {
     title: "Social Media Presence",
-    body: "Facebook, Instagram, X / Twitter, and your Google Business Profile — set up and verified.",
+    body: "Facebook, Instagram, X / Twitter, and your Google Business Profile, set up and verified.",
     icon: <IconChat className="h-6 w-6" />,
   },
   {
@@ -42,7 +42,7 @@ const services = [
   },
   {
     title: "Natural-language Automations",
-    body: "Run things by simply asking — calendar, email search, and analysis on command.",
+    body: "Run things by simply asking: calendar, email search, and analysis on command.",
     icon: <IconSparkle className="h-6 w-6" />,
   },
   {
@@ -64,7 +64,7 @@ export function Features() {
             Your entire presence, handled.
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-            Everything customers need to find, trust, and reach you — built and run by
+            Everything customers need to find, trust, and reach you, built and run by
             frontdoorapp.co.
           </p>
         </div>

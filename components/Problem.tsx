@@ -21,12 +21,12 @@ export function Problem() {
           A digital presence is table stakes. Building one shouldn’t be your job.
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-ink-soft">
-          Website, social media, reviews, business email, content — it’s how customers find
+          Website, social media, reviews, business email, content. It’s how customers find
           and trust you. But pulling it together means stitching 6+ tools, hiring a
           freelancer, or doing nothing at all.
         </p>
         <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-          It’s a tax on the people least equipped to pay it — the ones who just want to
+          It’s a tax on the people least equipped to pay it: the ones who just want to
           run their business.
         </p>
       </div>

@@ -48,7 +48,7 @@ export function BookingForm() {
           Table requested{name ? `, ${name.split(" ")[0]}` : ""}!
         </p>
         <p className="mt-1 text-sm text-ink-soft">
-          Bella’s would text you a confirmation shortly. (This is a demo — nothing was
+          Bella’s would text you a confirmation shortly. (This is a demo, so nothing was
           actually booked.)
         </p>
         <button

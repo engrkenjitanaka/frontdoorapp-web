@@ -18,7 +18,7 @@ export function EmailCapture({
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [company, setCompany] = useState(""); // honeypot
-  const [errorMsg, setErrorMsg] = useState("Something went wrong — please try again.");
+  const [errorMsg, setErrorMsg] = useState("Something went wrong. Please try again.");
   const isDark = tone === "dark";
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -43,7 +43,7 @@ export function EmailCapture({
       setStatus("done");
       setEmail("");
     } catch {
-      setErrorMsg("Something went wrong — please try again.");
+      setErrorMsg("Something went wrong. Please try again.");
       setStatus("error");
     }
   }
@@ -59,7 +59,7 @@ export function EmailCapture({
         }`}
       >
         <span aria-hidden="true">✅</span>
-        You’re on the list — we’ll be in touch the moment frontdoorapp.co opens.
+        You’re on the list! We’ll be in touch the moment frontdoorapp.co opens.
       </div>
     );
   }

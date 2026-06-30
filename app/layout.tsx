@@ -16,9 +16,9 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 const SITE_URL = "https://frontdoorapp.co";
-const TITLE = "frontdoorapp.co — The managed digital presence for business";
+const TITLE = "frontdoorapp.co · The managed digital presence for business";
 const DESCRIPTION =
-  "You do what you do best — we make the world see it. frontdoorapp.co sets up your entire online presence (website, social media, business email, reviews, content) and keeps it running on autopilot.";
+  "You do what you do best. We make the world see it. frontdoorapp.co sets up your entire online presence (website, social media, business email, reviews, content) and keeps it running on autopilot.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
         url: "/logo_banner.jpg",
         width: 1672,
         height: 941,
-        alt: "frontdoorapp.co — your business’s digital front door",
+        alt: "frontdoorapp.co · your business’s digital front door",
       },
     ],
   },

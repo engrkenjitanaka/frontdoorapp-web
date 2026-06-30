@@ -16,8 +16,8 @@ export function Mission() {
           The promise
         </p>
         <h2 className="mt-4 text-3xl font-extrabold leading-[1.15] text-white sm:text-4xl lg:text-[2.75rem]">
-          One front door, every channel —{" "}
-          <span className="text-brand-glow">near-zero effort from you</span>.
+          One front door, every channel.{" "}
+          <span className="text-brand-glow">Near-zero effort from you</span>.
         </h2>
       </div>
     </section>

@@ -30,7 +30,7 @@ const menu: { category: string; items: Item[] }[] = [
         desc: "Flax, sunflower, oats, honey",
         price: "$7.00",
         img: "multigrain",
-        long: "A hearty sandwich loaf packed with toasted seeds and a touch of honey. Soft, even crumb and a nutty crust — it makes the best morning toast you’ll have all week.",
+        long: "A hearty sandwich loaf packed with toasted seeds and a touch of honey. Soft, even crumb and a nutty crust. It makes the best morning toast you’ll have all week.",
         ingredients: ["Whole-wheat & rye flour", "Flax, sunflower & sesame seeds", "Rolled oats", "Honey", "Sea salt"],
         tags: ["Contains seeds"],
       },
@@ -39,7 +39,7 @@ const menu: { category: string; items: Item[] }[] = [
         desc: "Baked fresh twice daily",
         price: "$4.00",
         img: "baguette",
-        long: "Thin, shattering crust and an airy, irregular interior. Best within a few hours of baking — which is exactly why we pull a fresh batch at 7am and again at 1pm.",
+        long: "Thin, shattering crust and an airy, irregular interior. Best within a few hours of baking, which is exactly why we pull a fresh batch at 7am and again at 1pm.",
         ingredients: ["French-style flour", "Filtered water", "Sea salt", "Levain"],
         tags: ["Vegan", "Baked 2× daily"],
       },
@@ -85,7 +85,7 @@ const menu: { category: string; items: Item[] }[] = [
         desc: "Local single-origin, rotating",
         price: "$3.50",
         img: "coffee",
-        long: "A rotating single-origin from a local roaster, brewed in small batches throughout the day. Ask the counter what’s on — it changes every week.",
+        long: "A rotating single-origin from a local roaster, brewed in small batches throughout the day. Ask the counter what’s on. It changes every week.",
         ingredients: ["Single-origin coffee", "Filtered water"],
         tags: ["Vegan", "Free refills"],
       },
@@ -94,7 +94,7 @@ const menu: { category: string; items: Item[] }[] = [
         desc: "House espresso, silky microfoam",
         price: "$4.75",
         img: "cappuccino",
-        long: "A double shot of our house espresso under a deep layer of silky steamed-milk microfoam — equal parts espresso, milk, and foam, the way it should be.",
+        long: "A double shot of our house espresso under a deep layer of silky steamed-milk microfoam. Equal parts espresso, milk, and foam, the way it should be.",
         ingredients: ["House espresso", "Steamed milk"],
         tags: ["Oat milk available"],
       },
@@ -103,7 +103,7 @@ const menu: { category: string; items: Item[] }[] = [
         desc: "House-spiced, lightly sweet",
         price: "$5.00",
         img: "chai",
-        long: "House-steeped black tea with cardamom, ginger, clove and cinnamon, pulled with steamed milk and lightly sweetened. Tell us if you’d like it spicier — we will oblige.",
+        long: "House-steeped black tea with cardamom, ginger, clove and cinnamon, pulled with steamed milk and lightly sweetened. Tell us if you’d like it spicier, and we’ll oblige.",
         ingredients: ["House chai concentrate", "Black tea & spices", "Steamed milk"],
         tags: ["Oat milk available"],
       },
@@ -214,7 +214,7 @@ export function Menu() {
               >
                 Order {selected.name}
               </button>
-              <p className="mt-2 text-center text-xs text-ink-soft">Demo only — ordering isn’t wired up.</p>
+              <p className="mt-2 text-center text-xs text-ink-soft">Demo only. Ordering isn’t wired up.</p>
             </div>
           </div>
         </div>

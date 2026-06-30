@@ -13,7 +13,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
         <a
           href="#top"
-          aria-label="frontdoorapp.co — back to top"
+          aria-label="frontdoorapp.co, back to top"
           className="rounded-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-brand/20"
         >
           <Image

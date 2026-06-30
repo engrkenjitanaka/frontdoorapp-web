@@ -4,19 +4,19 @@ const steps = [
   {
     n: "Step 1",
     title: "We set it up",
-    body: "We handle the hard one-time work — domain and DNS, claiming your accounts, migrating your email, capturing your brand voice, and seeding your first content.",
+    body: "We handle the hard one-time work: domain and DNS, claiming your accounts, migrating your email, capturing your brand voice, and seeding your first content.",
     icon: <IconWindow className="h-6 w-6" />,
   },
   {
     n: "Step 2",
     title: "Automation keeps it running",
-    body: "Once you’re live, automation does the recurring work — posting across channels, drafting replies, and keeping your details current — so your presence stays fresh without you.",
+    body: "Once you’re live, automation does the recurring work: posting across channels, drafting replies, and keeping your details current, so your presence stays fresh without you.",
     icon: <IconRepeat className="h-6 w-6" />,
   },
   {
     n: "Step 3",
     title: "A human team has your back",
-    body: "For anything that needs a person, our team handles the hard parts — onboarding and ongoing help, so you’re never stuck.",
+    body: "For anything that needs a person, our team handles the hard parts: onboarding and ongoing help, so you’re never stuck.",
     icon: <IconSupport className="h-6 w-6" />,
   },
 ];
