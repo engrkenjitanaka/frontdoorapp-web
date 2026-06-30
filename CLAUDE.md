@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-`frontdoorapp-web` is the web client for **Frontdoor** (frontdoorapp.co) — a **managed, done-for-you** digital-presence platform for businesses: Frontdoor sets up a business's entire online presence (website, social media, business email, reviews, content) and keeps it running on autopilot. Right now the repo contains the **marketing landing page**; the product itself is in early development. Product and brand narrative live in [README.md](README.md); this file owns engineering posture and decisions.
+`frontdoorapp-web` is the web client for **frontdoorapp.co** — a **managed, done-for-you** digital-presence platform for businesses: it sets up a business's entire online presence (website, social media, business email, reviews, content) and keeps it running on autopilot. Right now the repo contains the **marketing landing page**; the product itself is in early development. Product and brand narrative live in [README.md](README.md); this file owns engineering posture and decisions.
 
 **Posture (2026-06):** a static, single-page Next.js site — **live in production at [frontdoorapp.co](https://frontdoorapp.co)** on Vercel (zero-config; auto-deploys on every push to `main`). No backend, database, auth, or API routes yet.
 
@@ -29,17 +29,17 @@ Next.js 15 **App Router** + TypeScript + **Tailwind CSS v4**. Every route is sta
 - `app/layout.tsx` — root layout. Owns fonts (`next/font`), all SEO / OpenGraph / Twitter metadata, and the `viewport` theme color. Fonts are exposed as CSS variables (`--font-inter`, `--font-jakarta`) and consumed by the theme.
 - `app/page.tsx` — composes the page from section components, in order: Header → Hero → Problem → HowItWorks → Features (the 8 included services) → Mission → CTA → Footer.
 - `app/globals.css` — **the design system lives here, not in a JS config** (Tailwind v4 is CSS-first). The `@theme` block defines brand tokens (`--color-ink`, `--color-brand`, `--font-display`, animation tokens…), which auto-generate utilities like `bg-brand`, `text-ink`, `font-display`, `animate-float`. Base element styles, keyframes, and the `prefers-reduced-motion` guard are here too.
-- `components/` — one section per file (PascalCase filenames, named exports). Logo: the header renders the real brand asset `public/logo-lockup.png` via `next/image`; `Wordmark` is the "Frontdoor" text wordmark (footer); `DoorMark` is the decorative vector door (PresenceCard, Mission, and the `app/icon.svg` favicon). Plus `icons` and the lone client component `EmailCapture`.
+- `components/` — one section per file (PascalCase filenames, named exports). Logo: the brand mark is the real asset `public/logo-lockup.png` (door + “frontdoorapp.co” lockup), used in the header and the PresenceCard “powered by” via `next/image`; `Wordmark` is the **frontdoorapp.co** text wordmark (dark footer); `DoorMark` is the hand-built vector door, now decorative only (Mission band + the `app/icon.svg` favicon). Plus `icons` and the lone client component `EmailCapture`.
 
 **Server-first:** every component is a React Server Component except `EmailCapture` (`'use client'`), the only interactive piece. Add `'use client'` only when a component genuinely needs state / effects / event handlers.
 
-**Brand:** navy `--color-ink` (`#0f1f47`) + blue `--color-brand` (`#2563eb`); Plus Jakarta Sans for display, Inter for body. Use the named tokens (`text-ink`, `bg-brand`, `font-display`) in components — don't hardcode hex.
+**Brand:** navy `--color-ink` (`#0f1f47`) + blue `--color-brand` (`#2563eb`); Plus Jakarta Sans for display, Inter for body. Use the named tokens (`text-ink`, `bg-brand`, `font-display`) in components — don't hardcode hex. **The brand name in copy is `frontdoorapp.co`** (lowercase, with “.co” in brand blue) — never “Frontdoor”. Copy also says “businesses” (not “small business”) and “social media” (not “social”).
 
 ### Non-obvious things that will bite you
 
 - **Tailwind v4 renamed gradient utilities:** use `bg-linear-to-*` / `bg-radial`, **not** v3's `bg-gradient-to-*`. The old names silently emit no CSS (no build error) — the gradient just won't render.
 - **Two copies of the logos, on purpose:** `assets/` is referenced by README.md so it renders on GitHub; `public/` is served by the app and used as the OpenGraph/social image. Change a logo → update both.
-- **Favicon / app icons use Next file conventions, not metadata:** `app/icon.svg` (a hand-built crisp door mark) is the favicon; `app/apple-icon.jpg` is the iOS touch icon. Next wires the `<link>` tags automatically — there are intentionally none in `metadata.icons`.
+- **Favicon / app icons use Next file conventions, not metadata:** `app/icon.svg` (a hand-built door mark — *not* the real brand asset; see Known gaps) is the favicon; `app/apple-icon.jpg` is the iOS touch icon. Next wires the `<link>` tags automatically — there are intentionally none in `metadata.icons`.
 - **Copy uses typographic punctuation** (’ “ ” —) on purpose: it renders better and sidesteps React's unescaped-entities lint.
 - `next-env.d.ts` is generated by Next and gitignored — don't edit or commit it.
 
@@ -47,6 +47,7 @@ Next.js 15 **App Router** + TypeScript + **Tailwind CSS v4**. Every route is sta
 
 Newest on top. Each entry = the decision + the *why* (and the option rejected, if any). Don't rewrite history; if a decision is reversed, add a new entry noting it.
 
+- **2026-06-30 — Brand is `frontdoorapp.co` everywhere** (not "Frontdoor"), and the real logo asset is used wherever the logo appears (supersedes the footer-wordmark detail in the logo entry below). All user-facing copy, the footer wordmark (`Wordmark`), SEO metadata, and the PresenceCard "powered by" now read **frontdoorapp.co** (lowercase, ".co" in brand blue) and use `public/logo-lockup.png`. The hand-built `DoorMark` is no longer used as the logo anywhere user-facing — only the Mission decorative accent and the favicon still use it (a known consistency gap; see **Known gaps**). Copy conventions locked in: "businesses" (not "small business"), "social media" (not "social").
 - **2026-06-30 — Repositioned to a managed, done-for-you service** (was the generic "one home for your presence" framing). Per the product one-pager, Frontdoor *sets up and runs* a business's whole digital presence on autopilot. Landing page rewritten: new hero ("You do what you do best. We make the world see it."), table-stakes problem framing, a **How it works** section, and the **8 actual services** (Landing Page, Social Media Presence, Business Email, Analytics, Content Generation, Social Media Automation, Natural-language Automations, Platform Support). The source one-pager is marked *Confidential*, so its internal strategy (phased roadmap, "SaaS economics"/moat, resold vendor names) was **deliberately excluded** from the public site, and the "OpenClaw" codename was softened to "natural-language automations".
 - **2026-06-30 — Header/footer logo now uses the real brand asset** — reverses the 2026-06-28 vector-logo decision *for the header*. The hand-built `DoorMark` SVG was inconsistent with the asset, so the header uses a cropped `public/logo-lockup.png` (door + "frontdoorapp.co" lockup) and the footer uses a "Frontdoor" text wordmark. `DoorMark` stays for small decorative marks and the favicon.
 - **2026-06-28 — Shipped: live at [frontdoorapp.co](https://frontdoorapp.co).** Deployed to Vercel (zero-config; auto-deploys on push to `main`). ⚠️ Note: this went public **before** the open security-headers and waitlist-backend items were done — they are now *live gaps*, not pre-launch TODOs (see **Known gaps**).
@@ -63,6 +64,7 @@ Newest on top. Each entry = the decision + the *why* (and the option rejected, i
 - No security response headers (CSP / `X-Frame-Options` / HSTS) — add via `headers()` in `next.config.ts`.
 
 Other:
+- **Design consistency:** the `app/icon.svg` favicon and the Mission band's decorative door still use the hand-built `DoorMark`, which doesn't match the real logo asset (`public/logo-lockup.png`) used everywhere else — regenerate the favicon from the asset and decide on the Mission accent.
 - No tests or linter yet — `npm run build` is the only automated gate.
 - License is **TBD** (per README) — don't assume an OSS license.
 

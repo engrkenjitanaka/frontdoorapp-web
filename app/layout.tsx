@@ -16,20 +16,20 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 const SITE_URL = "https://frontdoorapp.co";
-const TITLE = "Frontdoor — The managed digital presence for business";
+const TITLE = "frontdoorapp.co — The managed digital presence for business";
 const DESCRIPTION =
-  "You do what you do best — we make the world see it. Frontdoor sets up your entire online presence (website, social media, business email, reviews, content) and keeps it running on autopilot.";
+  "You do what you do best — we make the world see it. frontdoorapp.co sets up your entire online presence (website, social media, business email, reviews, content) and keeps it running on autopilot.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: TITLE,
-    template: "%s · Frontdoor",
+    template: "%s · frontdoorapp.co",
   },
   description: DESCRIPTION,
-  applicationName: "Frontdoor",
+  applicationName: "frontdoorapp.co",
   keywords: [
-    "Frontdoor",
+    "frontdoorapp.co",
     "frontdoorapp",
     "digital presence",
     "online presence for business",
@@ -38,14 +38,14 @@ export const metadata: Metadata = {
     "link in bio for business",
     "business listing",
   ],
-  authors: [{ name: "Frontdoor" }],
-  creator: "Frontdoor",
-  publisher: "Frontdoor",
+  authors: [{ name: "frontdoorapp.co" }],
+  creator: "frontdoorapp.co",
+  publisher: "frontdoorapp.co",
   alternates: { canonical: SITE_URL },
   openGraph: {
     type: "website",
     url: SITE_URL,
-    siteName: "Frontdoor",
+    siteName: "frontdoorapp.co",
     title: TITLE,
     description: DESCRIPTION,
     images: [

@@ -1,4 +1,4 @@
-import { DoorMark } from "./DoorMark";
+import Image from "next/image";
 import { IconChevron } from "./icons";
 
 const links = [
@@ -52,8 +52,13 @@ export function PresenceCard() {
 
           <div className="mt-5 flex items-center justify-center gap-1.5 border-t border-line pt-4 text-xs font-medium text-ink-soft">
             <span>Powered by</span>
-            <DoorMark className="h-4 w-4 text-ink" lineClassName="text-brand" />
-            <span className="font-semibold text-ink">Frontdoor</span>
+            <Image
+              src="/logo-lockup.png"
+              alt="frontdoorapp.co"
+              width={1520}
+              height={400}
+              className="h-4 w-auto"
+            />
           </div>
         </div>
       </div>

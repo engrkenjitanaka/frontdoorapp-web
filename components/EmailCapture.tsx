@@ -57,7 +57,7 @@ export function EmailCapture({
         }`}
       >
         <span aria-hidden="true">✅</span>
-        You’re on the list — we’ll be in touch the moment Frontdoor opens.
+        You’re on the list — we’ll be in touch the moment frontdoorapp.co opens.
       </div>
     );
   }

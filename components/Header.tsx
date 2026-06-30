@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const navLinks = [
-  { href: "#problem", label: "Why Frontdoor" },
+  { href: "#problem", label: "Why frontdoorapp.co" },
   { href: "#how", label: "How it works" },
   { href: "#included", label: "What’s included" },
 ];

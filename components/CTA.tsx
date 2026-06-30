@@ -12,7 +12,7 @@ export function CTA() {
             Be first through the door.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-ink-soft">
-            Frontdoor is onboarding its first businesses. Join the early-access list and
+            frontdoorapp.co is onboarding its first businesses. Join the early-access list and
             we’ll set up your entire digital presence — and let you know the moment we
             open the door.
           </p>

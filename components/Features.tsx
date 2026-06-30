@@ -65,7 +65,7 @@ export function Features() {
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-ink-soft">
             Everything customers need to find, trust, and reach you — built and run by
-            Frontdoor.
+            frontdoorapp.co.
           </p>
         </div>
 
