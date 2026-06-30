@@ -225,7 +225,7 @@ export default function DemoPage() {
           </div>
         </div>
         <div className="mt-6">
-          <div className="flex w-max gap-4 pr-4 animate-marquee-reverse">
+          <div className="flex w-max gap-4 pr-4 animate-marquee">
             {[...reviews, ...reviews].map((r, i) => (
               <figure key={`${r.name}-${i}`} className="w-80 shrink-0 rounded-2xl border border-line bg-white p-5">
                 <div className="flex items-center justify-between">

@@ -2,15 +2,14 @@
 
 import { useEffect, useState } from "react";
 
-const TIMES = [
-  "5:00 PM",
-  "5:30 PM",
-  "6:00 PM",
-  "6:30 PM",
-  "7:00 PM",
-  "7:30 PM",
-  "8:00 PM",
-];
+// Every 30 min across opening hours (7:00 AM – 5:30 PM).
+const TIMES = Array.from({ length: 22 }, (_, i) => {
+  const mins = 7 * 60 + i * 30;
+  const h = Math.floor(mins / 60);
+  const period = h < 12 ? "AM" : "PM";
+  const hh = ((h + 11) % 12) + 1;
+  return `${hh}:${String(mins % 60).padStart(2, "0")} ${period}`;
+});
 
 const inputCls =
   "h-12 w-full min-w-0 rounded-xl border border-line bg-white px-3.5 text-base text-ink outline-none transition focus:border-brand focus:ring-4 focus:ring-brand/15";
@@ -78,7 +77,7 @@ export function BookingForm() {
       </label>
       <label className="block">
         <span className="mb-1.5 block text-sm font-medium text-ink">Time</span>
-        <select required defaultValue="6:30 PM" className={inputCls} aria-label="Reservation time">
+        <select required defaultValue="9:00 AM" className={inputCls} aria-label="Reservation time">
           {TIMES.map((t) => (
             <option key={t}>{t}</option>
           ))}
@@ -87,7 +86,7 @@ export function BookingForm() {
       <label className="block">
         <span className="mb-1.5 block text-sm font-medium text-ink">Party size</span>
         <select required defaultValue="2" className={inputCls} aria-label="Party size">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+          {Array.from({ length: 12 }, (_, i) => i + 1).map((n) => (
             <option key={n} value={n}>
               {n} {n === 1 ? "guest" : "guests"}
             </option>

@@ -9,6 +9,8 @@ type EmailCaptureProps = {
 
 type Status = "idle" | "loading" | "done" | "error";
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export function EmailCapture({
   tone = "light",
   buttonLabel = "Get early access",
@@ -16,23 +18,32 @@ export function EmailCapture({
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [company, setCompany] = useState(""); // honeypot
+  const [errorMsg, setErrorMsg] = useState("Something went wrong — please try again.");
   const isDark = tone === "dark";
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!email || status === "loading") return;
-    setStatus("loading");
+    if (status === "loading") return;
 
+    const value = email.trim();
+    if (!EMAIL_RE.test(value)) {
+      setErrorMsg("Please enter a valid email address.");
+      setStatus("error");
+      return;
+    }
+
+    setStatus("loading");
     try {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, company }),
+        body: JSON.stringify({ email: value, company }),
       });
       if (!res.ok) throw new Error("Request failed");
       setStatus("done");
       setEmail("");
     } catch {
+      setErrorMsg("Something went wrong — please try again.");
       setStatus("error");
     }
   }
@@ -102,7 +113,7 @@ export function EmailCapture({
       </div>
       <p className={`mt-3 text-sm ${isDark ? "text-white/60" : "text-ink-soft"}`}>
         {status === "error"
-          ? "Something went wrong — please try again."
+          ? errorMsg
           : "Join the early-access list. No spam, just a heads-up when we open the door."}
       </p>
     </form>
