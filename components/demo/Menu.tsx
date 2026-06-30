@@ -113,6 +113,7 @@ const menu: { category: string; items: Item[] }[] = [
 
 export function Menu() {
   const [selected, setSelected] = useState<Item | null>(null);
+  const [ordered, setOrdered] = useState(false);
 
   useEffect(() => {
     if (!selected) return;
@@ -138,7 +139,10 @@ export function Menu() {
                 <button
                   key={item.name}
                   type="button"
-                  onClick={() => setSelected(item)}
+                  onClick={() => {
+                    setSelected(item);
+                    setOrdered(false);
+                  }}
                   className="group overflow-hidden rounded-2xl border border-line bg-white text-left shadow-sm transition hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-brand/20"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -181,41 +185,73 @@ export function Menu() {
             >
               ✕
             </button>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`/demo/${selected.img}.jpg`} alt={selected.name} className="h-52 w-full object-cover" />
-            <div className="p-6">
-              <div className="flex items-baseline justify-between gap-3">
-                <h3 className="font-display text-2xl font-extrabold text-ink">{selected.name}</h3>
-                <span className="shrink-0 font-display text-xl font-bold text-ink">{selected.price}</span>
-              </div>
-              {selected.tags.length > 0 && (
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {selected.tags.map((t) => (
-                    <span key={t} className="rounded-full bg-mist px-2.5 py-1 text-xs font-semibold text-brand-strong">
-                      {t}
-                    </span>
-                  ))}
+            {ordered ? (
+              <div className="p-8 text-center">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 animate-pop">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-8 w-8 text-emerald-600">
+                    <path
+                      d="M5 13l4 4 10-11"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="animate-check"
+                      style={{ strokeDasharray: 30 }}
+                    />
+                  </svg>
                 </div>
-              )}
-              <p className="mt-4 leading-relaxed text-ink-soft">{selected.long}</p>
-              <h4 className="mt-5 text-sm font-bold uppercase tracking-widest text-brand">What’s in it</h4>
-              <ul className="mt-2 space-y-1 text-sm text-ink-soft">
-                {selected.ingredients.map((ing) => (
-                  <li key={ing} className="flex gap-2">
-                    <span className="text-brand">•</span>
-                    {ing}
-                  </li>
-                ))}
-              </ul>
-              <button
-                type="button"
-                onClick={() => setSelected(null)}
-                className="mt-6 inline-flex h-11 w-full items-center justify-center rounded-xl bg-brand px-6 text-sm font-semibold text-white shadow-lg shadow-brand/25 transition hover:bg-brand-strong"
-              >
-                Order {selected.name}
-              </button>
-              <p className="mt-2 text-center text-xs text-ink-soft">Demo only. Ordering isn’t wired up.</p>
-            </div>
+                <h3 className="mt-4 font-display text-xl font-extrabold text-ink">Order placed!</h3>
+                <p className="mt-2 text-sm text-ink-soft">
+                  Bella’s would start on your {selected.name} right away. This is a demo, so nothing
+                  was actually ordered.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setSelected(null)}
+                  className="mt-6 inline-flex h-11 w-full items-center justify-center rounded-xl bg-brand px-6 text-sm font-semibold text-white shadow-lg shadow-brand/25 transition active:scale-[0.98] hover:bg-brand-strong"
+                >
+                  Done
+                </button>
+              </div>
+            ) : (
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/demo/${selected.img}.jpg`} alt={selected.name} className="h-52 w-full object-cover" />
+                <div className="p-6">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <h3 className="font-display text-2xl font-extrabold text-ink">{selected.name}</h3>
+                    <span className="shrink-0 font-display text-xl font-bold text-ink">{selected.price}</span>
+                  </div>
+                  {selected.tags.length > 0 && (
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {selected.tags.map((t) => (
+                        <span key={t} className="rounded-full bg-mist px-2.5 py-1 text-xs font-semibold text-brand-strong">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  <p className="mt-4 leading-relaxed text-ink-soft">{selected.long}</p>
+                  <h4 className="mt-5 text-sm font-bold uppercase tracking-widest text-brand">What’s in it</h4>
+                  <ul className="mt-2 space-y-1 text-sm text-ink-soft">
+                    {selected.ingredients.map((ing) => (
+                      <li key={ing} className="flex gap-2">
+                        <span className="text-brand">•</span>
+                        {ing}
+                      </li>
+                    ))}
+                  </ul>
+                  <button
+                    type="button"
+                    onClick={() => setOrdered(true)}
+                    className="mt-6 inline-flex h-11 w-full items-center justify-center rounded-xl bg-brand px-6 text-sm font-semibold text-white shadow-lg shadow-brand/25 transition active:scale-[0.98] hover:bg-brand-strong"
+                  >
+                    Order {selected.name}
+                  </button>
+                  <p className="mt-2 text-center text-xs text-ink-soft">Demo only. Ordering isn’t wired up.</p>
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}
