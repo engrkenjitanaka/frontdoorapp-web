@@ -13,11 +13,11 @@ export function Mission() {
           <DoorMark className="h-8 w-8 text-white" lineClassName="text-brand-glow" />
         </div>
         <p className="text-sm font-bold uppercase tracking-widest text-brand-glow">
-          The goal
+          The promise
         </p>
         <h2 className="mt-4 text-3xl font-extrabold leading-[1.15] text-white sm:text-4xl lg:text-[2.75rem]">
-          Spend less time managing your online presence — and more time on your{" "}
-          <span className="text-brand-glow">actual business</span>.
+          One front door, every channel —{" "}
+          <span className="text-brand-glow">near-zero effort from you</span>.
         </h2>
       </div>
     </section>

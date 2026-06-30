@@ -16,9 +16,9 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 const SITE_URL = "https://frontdoorapp.co";
-const TITLE = "Frontdoor — Your business’s digital front door";
+const TITLE = "Frontdoor — The managed digital presence for business";
 const DESCRIPTION =
-  "Frontdoor brings your business’s entire online presence into one clean, simple place. Set it up once, then get back to running your business.";
+  "You do what you do best — we make the world see it. Frontdoor sets up your entire online presence (website, social media, business email, reviews, content) and keeps it running on autopilot.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     "Frontdoor",
     "frontdoorapp",
     "digital presence",
-    "online presence for small business",
+    "online presence for business",
     "business profile page",
-    "small business website alternative",
+    "business website alternative",
     "link in bio for business",
     "business listing",
   ],

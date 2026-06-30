@@ -18,7 +18,7 @@
 ## The problem
 
 Most business owners are great at their craft but stretched thin when it comes to the
-digital world — websites, listings, social links, reviews, and everything else that
+digital world — websites, listings, social media links, reviews, and everything else that
 makes a business look credible online. Piecing it all together (or paying several
 different services to) is time-consuming and easy to neglect. The result: great
 businesses getting left behind simply because they couldn't keep up online — even

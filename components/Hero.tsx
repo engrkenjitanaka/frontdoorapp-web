@@ -1,7 +1,7 @@
 import { EmailCapture } from "./EmailCapture";
 import { PresenceCard } from "./PresenceCard";
 
-const trust = ["No website needed", "Ready in minutes", "Grows with you"];
+const trust = ["Done for you", "Live in days", "Runs on autopilot"];
 
 export function Hero() {
   return (
@@ -14,17 +14,19 @@ export function Hero() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:py-28">
         <div className="animate-rise">
           <span className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-mist px-3.5 py-1.5 text-sm font-semibold text-brand-strong">
-            <span aria-hidden="true">🚪</span> Now in early access
+            <span aria-hidden="true">🚪</span> Managed digital presence · Now in early access
           </span>
 
-          <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] text-ink sm:text-5xl lg:text-6xl">
-            Your business’s digital <span className="text-brand">front door</span>.
+          <h1 className="mt-6 text-4xl font-extrabold leading-[1.06] text-ink sm:text-5xl lg:text-[3.25rem]">
+            You do what you do best.{" "}
+            <span className="text-brand">We make the world see it.</span>
           </h1>
 
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
-            Set up once, focus on what you do best. Frontdoor brings your website,
-            links, hours, and reviews — your whole online presence — into one clean
-            page that’s simple to manage.
+            The managed digital presence for businesses —{" "}
+            <span className="font-semibold text-ink">set up for you, run on autopilot.</span>{" "}
+            We build your website, social media, business email, reviews, and content into one
+            front door, then keep it all running.
           </p>
 
           <div className="mt-8 max-w-lg">

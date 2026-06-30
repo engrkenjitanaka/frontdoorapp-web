@@ -1,12 +1,13 @@
-const scattered = [
+const channels = [
   "Website",
-  "Google listing",
-  "Instagram",
   "Facebook",
-  "Yelp reviews",
-  "Opening hours",
-  "Online booking",
-  "Email list",
+  "Instagram",
+  "X / Twitter",
+  "Google Business Profile",
+  "Business email",
+  "Reviews",
+  "Analytics",
+  "Content",
 ];
 
 export function Problem() {
@@ -17,23 +18,22 @@ export function Problem() {
           The problem
         </p>
         <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">
-          Being online shouldn’t be a second job.
+          A digital presence is table stakes. Building one shouldn’t be your job.
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-ink-soft">
-          Most business owners are great at their craft — but stretched thin when it
-          comes to the digital world. Websites, listings, social links, reviews, and
-          everything else that makes a business look credible online.
+          Website, social media, reviews, business email, content — it’s how customers find
+          and trust you. But pulling it together means stitching 6+ tools, hiring a
+          freelancer, or doing nothing at all.
         </p>
         <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-          Piecing it all together — or paying several different services to — is
-          time-consuming and easy to neglect. The result: great businesses getting
-          left behind, simply because keeping up online became a job of its own.
+          It’s a tax on the people least equipped to pay it — the ones who just want to
+          run their business.
         </p>
       </div>
 
       <div className="mx-auto mt-10 max-w-2xl px-5 sm:px-8">
         <div className="flex flex-wrap justify-center gap-2.5">
-          {scattered.map((item) => (
+          {channels.map((item) => (
             <span
               key={item}
               className="rounded-xl border border-line bg-cloud px-3.5 py-2 text-sm font-medium text-ink-soft"
@@ -43,7 +43,7 @@ export function Problem() {
           ))}
         </div>
         <p className="mt-6 text-center text-sm font-medium text-ink-soft">
-          Eight tabs. Five logins. One overwhelmed owner.
+          6+ tools to stitch together. Or a freelancer. Or nothing at all.
         </p>
       </div>
     </section>

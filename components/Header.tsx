@@ -1,9 +1,9 @@
-import { Wordmark } from "./Wordmark";
+import Image from "next/image";
 
 const navLinks = [
   { href: "#problem", label: "Why Frontdoor" },
-  { href: "#features", label: "Features" },
-  { href: "#early-access", label: "Early access" },
+  { href: "#how", label: "How it works" },
+  { href: "#included", label: "What’s included" },
 ];
 
 export function Header() {
@@ -12,10 +12,17 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
         <a
           href="#top"
-          aria-label="Frontdoor — back to top"
+          aria-label="frontdoorapp.co — back to top"
           className="rounded-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-brand/20"
         >
-          <Wordmark />
+          <Image
+            src="/logo-lockup.png"
+            alt="frontdoorapp.co"
+            width={1520}
+            height={400}
+            priority
+            className="h-8 w-auto sm:h-9"
+          />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">

@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-`frontdoorapp-web` is the web client for **Frontdoor** (frontdoorapp.co) — a digital-presence platform that helps small-business owners manage their online presence in one place. Right now the repo contains the **marketing landing page**; the product itself is in early development. Product and brand narrative live in [README.md](README.md); this file owns engineering posture and decisions.
+`frontdoorapp-web` is the web client for **Frontdoor** (frontdoorapp.co) — a **managed, done-for-you** digital-presence platform for businesses: Frontdoor sets up a business's entire online presence (website, social media, business email, reviews, content) and keeps it running on autopilot. Right now the repo contains the **marketing landing page**; the product itself is in early development. Product and brand narrative live in [README.md](README.md); this file owns engineering posture and decisions.
 
 **Posture (2026-06):** a static, single-page Next.js site — **live in production at [frontdoorapp.co](https://frontdoorapp.co)** on Vercel (zero-config; auto-deploys on every push to `main`). No backend, database, auth, or API routes yet.
 
@@ -27,9 +27,9 @@ npm start            # serve the production build (run after build)
 Next.js 15 **App Router** + TypeScript + **Tailwind CSS v4**. Every route is statically prerendered.
 
 - `app/layout.tsx` — root layout. Owns fonts (`next/font`), all SEO / OpenGraph / Twitter metadata, and the `viewport` theme color. Fonts are exposed as CSS variables (`--font-inter`, `--font-jakarta`) and consumed by the theme.
-- `app/page.tsx` — composes the page from section components, in order: Header → Hero → Problem → Features → Mission → CTA → Footer.
+- `app/page.tsx` — composes the page from section components, in order: Header → Hero → Problem → HowItWorks → Features (the 8 included services) → Mission → CTA → Footer.
 - `app/globals.css` — **the design system lives here, not in a JS config** (Tailwind v4 is CSS-first). The `@theme` block defines brand tokens (`--color-ink`, `--color-brand`, `--font-display`, animation tokens…), which auto-generate utilities like `bg-brand`, `text-ink`, `font-display`, `animate-float`. Base element styles, keyframes, and the `prefers-reduced-motion` guard are here too.
-- `components/` — one section per file (PascalCase filenames, named exports). Shared building blocks: `DoorMark` (the vector "open door" logo mark), `Wordmark`, `icons`, and `EmailCapture`.
+- `components/` — one section per file (PascalCase filenames, named exports). Logo: the header renders the real brand asset `public/logo-lockup.png` via `next/image`; `Wordmark` is the "Frontdoor" text wordmark (footer); `DoorMark` is the decorative vector door (PresenceCard, Mission, and the `app/icon.svg` favicon). Plus `icons` and the lone client component `EmailCapture`.
 
 **Server-first:** every component is a React Server Component except `EmailCapture` (`'use client'`), the only interactive piece. Add `'use client'` only when a component genuinely needs state / effects / event handlers.
 
@@ -47,6 +47,8 @@ Next.js 15 **App Router** + TypeScript + **Tailwind CSS v4**. Every route is sta
 
 Newest on top. Each entry = the decision + the *why* (and the option rejected, if any). Don't rewrite history; if a decision is reversed, add a new entry noting it.
 
+- **2026-06-30 — Repositioned to a managed, done-for-you service** (was the generic "one home for your presence" framing). Per the product one-pager, Frontdoor *sets up and runs* a business's whole digital presence on autopilot. Landing page rewritten: new hero ("You do what you do best. We make the world see it."), table-stakes problem framing, a **How it works** section, and the **8 actual services** (Landing Page, Social Media Presence, Business Email, Analytics, Content Generation, Social Media Automation, Natural-language Automations, Platform Support). The source one-pager is marked *Confidential*, so its internal strategy (phased roadmap, "SaaS economics"/moat, resold vendor names) was **deliberately excluded** from the public site, and the "OpenClaw" codename was softened to "natural-language automations".
+- **2026-06-30 — Header/footer logo now uses the real brand asset** — reverses the 2026-06-28 vector-logo decision *for the header*. The hand-built `DoorMark` SVG was inconsistent with the asset, so the header uses a cropped `public/logo-lockup.png` (door + "frontdoorapp.co" lockup) and the footer uses a "Frontdoor" text wordmark. `DoorMark` stays for small decorative marks and the favicon.
 - **2026-06-28 — Shipped: live at [frontdoorapp.co](https://frontdoorapp.co).** Deployed to Vercel (zero-config; auto-deploys on push to `main`). ⚠️ Note: this went public **before** the open security-headers and waitlist-backend items were done — they are now *live gaps*, not pre-launch TODOs (see **Known gaps**).
 - **2026-06-28 — Stack: Next.js + Tailwind v4** (over plain static HTML or Vite/React). The repo is meant to grow into the real web client, not stay a one-off marketing page. Next.js is the canonical zero-config Vercel target, leaves room for a future dashboard/auth/API routes, and has the strongest SEO/metadata story. Tailwind v4's CSS-first `@theme` keeps brand tokens in one place (`globals.css`).
 - **2026-06-28 — Email capture is a documented placeholder.** `EmailCapture.tsx` optimistically shows success and only POSTs if `NEXT_PUBLIC_WAITLIST_ENDPOINT` is set. Why: ship a usable page without committing to a backend. **Before launch:** point that env var at a real endpoint (Route Handler / Formspree / Resend); the endpoint must do server-side validation, rate-limiting, and abuse protection — the client does none. A real secret (e.g. an API key) must **not** use the `NEXT_PUBLIC_` prefix, which would ship it in the browser bundle.

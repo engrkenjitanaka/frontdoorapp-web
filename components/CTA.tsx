@@ -12,8 +12,9 @@ export function CTA() {
             Be first through the door.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-ink-soft">
-            Frontdoor is just getting started. Join the early-access list and we’ll let
-            you know the moment it’s ready — and you’ll help shape what it becomes.
+            Frontdoor is onboarding its first businesses. Join the early-access list and
+            we’ll set up your entire digital presence — and let you know the moment we
+            open the door.
           </p>
           <div className="mx-auto mt-8 max-w-md">
             <EmailCapture buttonLabel="Join the list" />
