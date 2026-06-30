@@ -22,7 +22,7 @@ const services = [
   },
   {
     title: "Business Email",
-    body: "Custom-domain email, with migration and deliverability handled for you.",
+    body: "Custom-domain email with migration and deliverability handled, plus newsletters and email campaigns to your customers.",
     icon: <IconMail className="h-6 w-6" />,
   },
   {
