@@ -15,6 +15,7 @@ export function EmailCapture({
 }: EmailCaptureProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>("idle");
+  const [company, setCompany] = useState(""); // honeypot
   const isDark = tone === "dark";
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -22,23 +23,13 @@ export function EmailCapture({
     if (!email || status === "loading") return;
     setStatus("loading");
 
-    // ------------------------------------------------------------------
-    // TODO (before launch): wire this up to a real backend.
-    // Set NEXT_PUBLIC_WAITLIST_ENDPOINT to a URL (API route, Formspree,
-    // Resend, etc.) that accepts a POST { email }. Until that env var is
-    // set, we optimistically confirm so the page is fully usable in
-    // preview/design without a backend.
-    // ------------------------------------------------------------------
-    const endpoint = process.env.NEXT_PUBLIC_WAITLIST_ENDPOINT;
     try {
-      if (endpoint) {
-        const res = await fetch(endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email }),
-        });
-        if (!res.ok) throw new Error("Request failed");
-      }
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, company }),
+      });
+      if (!res.ok) throw new Error("Request failed");
       setStatus("done");
       setEmail("");
     } catch {
@@ -66,6 +57,20 @@ export function EmailCapture({
 
   return (
     <form onSubmit={handleSubmit} noValidate className="w-full">
+      {/* Honeypot — hidden from real users; bots that fill it are dropped server-side. */}
+      <div aria-hidden="true" className="absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden">
+        <label>
+          Company
+          <input
+            type="text"
+            name="company"
+            tabIndex={-1}
+            autoComplete="off"
+            value={company}
+            onChange={(e) => setCompany(e.target.value)}
+          />
+        </label>
+      </div>
       <div className="flex flex-col gap-3 sm:flex-row">
         <label htmlFor={inputId} className="sr-only">
           Email address

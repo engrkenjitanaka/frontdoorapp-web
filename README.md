@@ -88,13 +88,24 @@ vercel          # preview
 vercel --prod   # production
 ```
 
-### Early-access form
+### Early-access waitlist
 
-The waitlist form is built but not yet wired to a backend. To collect real signups, point
-`NEXT_PUBLIC_WAITLIST_ENDPOINT` at a URL that accepts a `POST { email }` (a Next.js Route
-Handler, Formspree, Resend, etc.) — set it under **Project → Settings → Environment
-Variables** in Vercel. Until then the form optimistically confirms, so the page stays
-fully usable.
+Signups POST same-origin to a Route Handler (`app/api/waitlist/route.ts`) that runs an
+invisible [Vercel BotID](https://vercel.com/docs/botid) check (no captcha for real users),
+drops honeypot hits, validates the email, and stores it in **Upstash Redis** — a sorted
+set (`waitlist`) keyed by signup time, so it dedupes and you can view/export it in the
+Upstash console.
+
+**One-time setup** (provisions the env vars automatically):
+
+```bash
+vercel install upstash       # wires UPSTASH_REDIS_REST_URL + UPSTASH_REDIS_REST_TOKEN
+vercel env pull .env.local   # only needed to exercise the route locally
+```
+
+BotID needs no env vars — its invisible protection activates automatically once deployed
+on Vercel (in local dev it runs in basic mode). The Upstash tokens are server-only (never
+`NEXT_PUBLIC_`).
 
 ## Contributing
 

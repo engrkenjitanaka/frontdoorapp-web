@@ -1,8 +1,10 @@
 import type { NextConfig } from "next";
+import { withBotId } from "botid/next/config";
 
 const nextConfig: NextConfig = {
-  // Frontdoor landing page — static, no special config needed.
-  // Vercel auto-detects Next.js and deploys with zero configuration.
+  // Frontdoor landing page — Vercel auto-detects Next.js (zero config).
 };
 
-export default nextConfig;
+// withBotId wires the proxy rewrites used by the invisible BotID check
+// (see app/api/waitlist + instrumentation-client.ts).
+export default withBotId(nextConfig);
