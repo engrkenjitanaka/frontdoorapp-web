@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Class-based dark mode (the no-flash script in layout.tsx sets `.dark`) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ----------------------------------------------------------------------------
    Frontdoor brand theme (Tailwind v4 CSS-first config)
    Palette + type scale derived from the frontdoorapp.co logo:
@@ -28,6 +31,8 @@
   /* Custom animations */
   --animate-rise: rise 0.7s var(--ease-out-soft) both;
   --animate-float: float 7s ease-in-out infinite;
+  --animate-marquee: marquee 60s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 75s linear infinite;
 }
 
 @layer base {
@@ -94,6 +99,25 @@
   }
 }
 
+/* Horizontal auto-scroll marquees (track holds two copies; -50% = one copy) */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -103,5 +127,73 @@
   ::after {
     animation: none !important;
     transition: none !important;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Dark theme — flip the single-purpose color tokens (the var-backed utilities
+   like bg-cloud / text-ink-soft / border-line follow automatically). `white`
+   is literal, so bg-white is handled explicitly.
+---------------------------------------------------------------------------- */
+.dark {
+  color-scheme: dark;
+  --color-ink: #eaf0fb; /* primary text → light */
+  --color-ink-soft: #9fb0d0;
+  --color-cloud: #0c1635;
+  --color-mist: #16224a;
+  --color-line: rgba(255, 255, 255, 0.1);
+}
+.dark body {
+  background-color: #0a1330;
+}
+.dark .bg-white {
+  background-color: #111e3f;
+}
+.dark .text-brand,
+.dark .text-brand-strong {
+  color: var(--color-brand-glow);
+}
+
+/* The /demo page is a customer's own site — keep it light regardless of the toggle. */
+.force-light {
+  color-scheme: light;
+  --color-ink: #0f1f47;
+  --color-ink-soft: #41507a;
+  --color-cloud: #f6f8fc;
+  --color-mist: #eef3ff;
+  --color-line: #e6ebf4;
+  background-color: #ffffff;
+}
+.force-light .bg-white {
+  background-color: #ffffff;
+}
+.force-light .text-brand,
+.force-light .text-brand-strong {
+  color: var(--color-brand);
+}
+
+/* ---------- effects ---------- */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 22%;
+    }
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }

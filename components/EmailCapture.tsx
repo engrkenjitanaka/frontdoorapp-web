@@ -90,7 +90,7 @@ export function EmailCapture({
         <button
           type="submit"
           disabled={status === "loading"}
-          className="inline-flex h-13 shrink-0 items-center justify-center rounded-2xl bg-brand px-6 text-base font-semibold text-white shadow-lg shadow-brand/25 transition hover:bg-brand-strong focus:outline-none focus:ring-4 focus:ring-brand/30 disabled:cursor-not-allowed disabled:opacity-70"
+          className="inline-flex h-13 shrink-0 items-center justify-center rounded-2xl bg-brand px-6 text-base font-semibold text-white shadow-lg shadow-brand/25 transition active:scale-[0.98] hover:bg-brand-strong focus:outline-none focus:ring-4 focus:ring-brand/30 disabled:cursor-not-allowed disabled:opacity-70"
         >
           {status === "loading" ? "Joining…" : buttonLabel}
         </button>

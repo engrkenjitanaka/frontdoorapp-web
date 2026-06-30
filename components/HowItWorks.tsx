@@ -2,19 +2,19 @@ import { IconWindow, IconRepeat, IconSupport } from "./icons";
 
 const steps = [
   {
-    n: "01",
+    n: "Step 1",
     title: "We set it up",
     body: "We handle the hard one-time work — domain and DNS, claiming your accounts, migrating your email, capturing your brand voice, and seeding your first content.",
     icon: <IconWindow className="h-6 w-6" />,
   },
   {
-    n: "02",
+    n: "Step 2",
     title: "Automation keeps it running",
     body: "Once you’re live, automation does the recurring work — posting across channels, drafting replies, and keeping your details current — so your presence stays fresh without you.",
     icon: <IconRepeat className="h-6 w-6" />,
   },
   {
-    n: "03",
+    n: "Step 3",
     title: "A human team has your back",
     body: "For anything that needs a person, our team handles the hard parts — onboarding and ongoing help, so you’re never stuck.",
     icon: <IconSupport className="h-6 w-6" />,
@@ -23,8 +23,8 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how" className="border-t border-line bg-white py-20 sm:py-24">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+    <section id="how" className="border-t border-line bg-white py-14 sm:py-18">
+      <div className="reveal mx-auto max-w-6xl px-5 sm:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-bold uppercase tracking-widest text-brand">
             How it works

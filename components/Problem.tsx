@@ -12,8 +12,8 @@ const channels = [
 
 export function Problem() {
   return (
-    <section id="problem" className="border-t border-line bg-white py-20 sm:py-24">
-      <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
+    <section id="problem" className="border-t border-line bg-white py-14 sm:py-18">
+      <div className="reveal mx-auto max-w-3xl px-5 text-center sm:px-8">
         <p className="text-sm font-bold uppercase tracking-widest text-brand">
           The problem
         </p>

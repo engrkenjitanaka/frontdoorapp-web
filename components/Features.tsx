@@ -54,8 +54,8 @@ const services = [
 
 export function Features() {
   return (
-    <section id="included" className="border-t border-line bg-cloud py-20 sm:py-24">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+    <section id="included" className="border-t border-line bg-cloud py-14 sm:py-18">
+      <div className="reveal mx-auto max-w-6xl px-5 sm:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-bold uppercase tracking-widest text-brand">
             What’s included

@@ -81,8 +81,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jakarta.variable}`}>
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jakarta.variable}`}>
+      <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{var t=localStorage.getItem('theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');}catch(e){}})();",
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

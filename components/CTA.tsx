@@ -2,9 +2,9 @@ import { EmailCapture } from "./EmailCapture";
 
 export function CTA() {
   return (
-    <section id="early-access" className="border-t border-line bg-white py-20 sm:py-24">
-      <div className="mx-auto max-w-3xl px-5 sm:px-8">
-        <div className="relative overflow-hidden rounded-3xl border border-brand/15 bg-linear-to-b from-mist to-white px-6 py-12 text-center shadow-xl shadow-brand/5 sm:px-12 sm:py-14">
+    <section id="early-access" className="border-t border-line bg-white py-14 sm:py-18">
+      <div className="reveal mx-auto max-w-3xl px-5 sm:px-8">
+        <div className="relative overflow-hidden rounded-3xl border border-brand/15 bg-linear-to-b from-mist to-white px-6 py-12 text-center shadow-xl shadow-brand/5 dark:border-white/10 dark:to-[#111e3f] sm:px-12 sm:py-14">
           <span className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3.5 py-1.5 text-sm font-semibold text-ink-soft shadow-sm">
             <span aria-hidden="true">🚧</span> Early development
           </span>

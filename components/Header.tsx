@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { href: "#problem", label: "Why frontdoorapp.co" },
@@ -8,7 +9,7 @@ const navLinks = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-line/70 bg-white/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-line/70 bg-white/80 backdrop-blur-md transition-colors dark:bg-[#0a1330]/85">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
         <a
           href="#top"
@@ -18,10 +19,10 @@ export function Header() {
           <Image
             src="/logo-lockup.png"
             alt="frontdoorapp.co"
-            width={1520}
-            height={400}
+            width={1543}
+            height={322}
             priority
-            className="h-8 w-auto sm:h-9"
+            className="h-8 w-auto transition sm:h-9 dark:brightness-0 dark:invert"
           />
         </a>
 
@@ -37,12 +38,15 @@ export function Header() {
           ))}
         </nav>
 
-        <a
-          href="#early-access"
-          className="inline-flex h-10 items-center justify-center rounded-xl bg-ink px-4 text-sm font-semibold text-white transition hover:bg-ink-deep focus:outline-none focus-visible:ring-4 focus-visible:ring-ink/20"
-        >
-          Get early access
-        </a>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <a
+            href="#early-access"
+            className="inline-flex h-10 items-center justify-center rounded-xl bg-ink px-4 text-sm font-semibold text-white transition hover:bg-ink-deep active:scale-[0.97] focus:outline-none focus-visible:ring-4 focus-visible:ring-ink/20 dark:bg-brand dark:hover:bg-brand-strong"
+          >
+            Get early access
+          </a>
+        </div>
       </div>
     </header>
   );

@@ -11,7 +11,7 @@ export function Hero() {
         <div className="absolute inset-0 opacity-[0.55] [background-image:radial-gradient(var(--color-line)_1px,transparent_1px)] [background-size:26px_26px] [mask-image:radial-gradient(75%_60%_at_50%_0%,black,transparent)]" />
       </div>
 
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:py-28">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-5 pt-6 pb-12 sm:px-8 sm:pt-8 sm:pb-16 lg:grid-cols-[1.05fr_0.95fr] lg:pt-10 lg:pb-24">
         <div className="animate-rise">
           <span className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-mist px-3.5 py-1.5 text-sm font-semibold text-brand-strong">
             <span aria-hidden="true">🚪</span> Now in early access
