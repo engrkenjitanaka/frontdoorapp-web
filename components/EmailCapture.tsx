@@ -81,7 +81,7 @@ export function EmailCapture({
           }}
           placeholder="you@yourbusiness.com"
           autoComplete="email"
-          className={`h-13 w-full flex-1 rounded-2xl border px-4 text-base outline-none transition focus:ring-4 ${
+          className={`h-13 w-full min-w-0 rounded-2xl border px-4 text-base outline-none transition focus:ring-4 sm:flex-1 ${
             isDark
               ? "border-white/15 bg-white/10 text-white placeholder:text-white/50 focus:border-brand-glow focus:ring-brand/30"
               : "border-line bg-white text-ink placeholder:text-ink-soft/60 focus:border-brand focus:ring-brand/15"
