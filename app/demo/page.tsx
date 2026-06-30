@@ -260,7 +260,7 @@ export default function DemoPage() {
           </div>
           <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-sm text-white/50 sm:flex-row">
             <p>© 2026 Bella’s Bakery</p>
-            <a href="/#early-access" className="inline-flex items-center gap-1.5 font-medium text-white/70 transition hover:text-white">
+            <a href="/#early-access" className="text-center font-medium text-white/70 transition hover:text-white sm:text-right">
               Powered by <strong className="text-white">frontdoorapp.co</strong> — get this for your business →
             </a>
           </div>
