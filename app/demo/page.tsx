@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { BookingForm } from "@/components/demo/BookingForm";
 import { Menu } from "@/components/demo/Menu";
+import { OpenStatus } from "@/components/demo/OpenStatus";
 
 export const metadata: Metadata = {
   title: "Bella’s Bakery · a live frontdoorapp.co example",
@@ -104,10 +105,7 @@ export default function DemoPage() {
                 className="h-20 w-20 rounded-2xl border-4 border-white object-cover shadow-lg sm:h-24 sm:w-24"
               />
               <div className="pb-1">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2.5 py-1 text-xs font-semibold text-white ring-1 ring-white/25 backdrop-blur">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                  Open now · until 6:00 PM
-                </span>
+                <OpenStatus />
                 <h1 className="mt-2 font-display text-3xl font-extrabold leading-tight text-white sm:text-5xl">
                   Bella’s Bakery
                 </h1>
@@ -159,7 +157,9 @@ export default function DemoPage() {
             </div>
           </div>
           <div className="rounded-2xl border border-line bg-cloud p-6">
-            <h3 className="font-display text-base font-bold text-ink">Hours</h3>
+            <h3 className="font-display text-base font-bold text-ink">
+              Hours <span className="text-xs font-medium text-ink-soft">(UTC)</span>
+            </h3>
             <dl className="mt-3 space-y-1.5 text-sm">
               {hours.map(([day, time]) => (
                 <div key={day} className="flex justify-between gap-4">
@@ -250,7 +250,7 @@ export default function DemoPage() {
               <p className="text-sm text-white/60">(503) 555-0142 · hello@bellasbakery.example</p>
             </div>
             <div className="text-sm text-white/60">
-              <p className="font-semibold text-white/80">Hours</p>
+              <p className="font-semibold text-white/80">Hours (UTC)</p>
               {hours.map(([day, time]) => (
                 <p key={day}>
                   {day}: {time}
