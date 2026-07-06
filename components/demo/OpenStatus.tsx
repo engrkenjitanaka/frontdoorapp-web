@@ -44,18 +44,43 @@ export function status(now: Date): { open: boolean; label: string } {
   return { open: false, label: "Closed" };
 }
 
-export function OpenStatus() {
+type OpenStatusProps = {
+  // "overlay" sits on the demo's photo hero (white text); "pill" sits on a light
+  // card (the homepage PresenceCard). Both share the same open/closed computation.
+  variant?: "overlay" | "pill";
+  // Compact drops the "· closes … UTC" detail — for tight badges like the hero card.
+  compact?: boolean;
+};
+
+export function OpenStatus({ variant = "overlay", compact = false }: OpenStatusProps) {
   // Computed after mount so SSR/hydration match and it reflects the visitor's current time.
   const [state, setState] = useState<{ open: boolean; label: string } | null>(null);
   useEffect(() => {
     setState(status(new Date()));
   }, []);
 
+  const label = state ? (compact ? (state.open ? "Open now" : "Closed") : state.label) : "Hours in UTC";
+
+  if (variant === "pill") {
+    const tone = state
+      ? state.open
+        ? "bg-emerald-50 text-emerald-700"
+        : "bg-rose-50 text-rose-700"
+      : "bg-cloud text-ink-soft";
+    const dot = state ? (state.open ? "bg-emerald-500" : "bg-rose-500") : "bg-ink-soft/40";
+    return (
+      <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${tone}`}>
+        <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
+        {label}
+      </span>
+    );
+  }
+
   const dot = state ? (state.open ? "bg-emerald-400" : "bg-rose-400") : "bg-white/50";
   return (
     <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2.5 py-1 text-xs font-semibold text-white ring-1 ring-white/25 backdrop-blur">
       <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
-      {state ? state.label : "Hours in UTC"}
+      {label}
     </span>
   );
 }

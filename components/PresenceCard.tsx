@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { IconChevron } from "./icons";
+import { OpenStatus } from "./demo/OpenStatus";
 
 const links = [
   { label: "Visit our website", icon: "🌐", href: "/demo" },
@@ -32,9 +33,8 @@ export function PresenceCard() {
               alt="Bella’s Bakery"
               className="h-20 w-20 rounded-2xl border-4 border-white object-cover shadow-md"
             />
-            <span className="mb-1 inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-              Open now
+            <span className="mb-1">
+              <OpenStatus variant="pill" compact />
             </span>
           </div>
 
