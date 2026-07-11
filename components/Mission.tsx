@@ -1,5 +1,3 @@
-import { DoorMark } from "./DoorMark";
-
 export function Mission() {
   return (
     <section className="relative overflow-hidden bg-ink-deep py-14 sm:py-20">
@@ -9,9 +7,6 @@ export function Mission() {
       />
 
       <div className="reveal relative mx-auto max-w-3xl px-5 text-center sm:px-8">
-        <div className="mx-auto mb-7 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/15">
-          <DoorMark className="h-8 w-8 text-white" lineClassName="text-brand-glow" />
-        </div>
         <p className="text-sm font-bold uppercase tracking-widest text-brand-glow">
           The promise
         </p>

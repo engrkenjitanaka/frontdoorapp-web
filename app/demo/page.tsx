@@ -3,6 +3,7 @@ import { BookingForm } from "@/components/demo/BookingForm";
 import { Menu } from "@/components/demo/Menu";
 import { OpenStatus } from "@/components/demo/OpenStatus";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { Marquee } from "@/components/demo/Marquee";
 
 export const metadata: Metadata = {
   title: "Bella’s Bakery · a live frontdoorapp.co example",
@@ -191,20 +192,19 @@ export default function DemoPage() {
           <h2 className="font-display text-3xl font-extrabold text-ink">Gallery</h2>
           <p className="mt-1 text-ink-soft">A peek at the counter.</p>
         </div>
-        <div className="mt-6">
-          <div className="flex w-max gap-4 pr-4 animate-marquee">
-            {[...galleryImgs, ...galleryImgs].map((g, i) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                key={`${g}-${i}`}
-                src={`/demo/${g}.jpg`}
-                alt=""
-                loading="lazy"
-                className="h-48 w-72 shrink-0 rounded-2xl object-cover shadow-sm sm:h-56 sm:w-80"
-              />
-            ))}
-          </div>
-        </div>
+        <Marquee className="mt-6 gap-4 px-5 sm:px-8">
+          {[...galleryImgs, ...galleryImgs].map((g, i) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              key={`${g}-${i}`}
+              src={`/demo/${g}.jpg`}
+              alt=""
+              loading="lazy"
+              draggable={false}
+              className="h-48 w-72 shrink-0 rounded-2xl object-cover shadow-sm sm:h-56 sm:w-80"
+            />
+          ))}
+        </Marquee>
       </section>
 
       {/* Reservations */}
@@ -228,20 +228,18 @@ export default function DemoPage() {
             </span>
           </div>
         </div>
-        <div className="mt-6">
-          <div className="flex w-max gap-4 pr-4 animate-marquee">
-            {[...reviews, ...reviews].map((r, i) => (
-              <figure key={`${r.name}-${i}`} className="w-80 shrink-0 rounded-2xl border border-line bg-white p-5">
-                <div className="flex items-center justify-between">
-                  <Stars rating={r.rating} />
-                  <figcaption className="text-xs text-ink-soft">{r.when}</figcaption>
-                </div>
-                <blockquote className="mt-3 text-sm leading-relaxed text-ink">“{r.text}”</blockquote>
-                <p className="mt-3 text-sm font-semibold text-ink">{r.name}</p>
-              </figure>
-            ))}
-          </div>
-        </div>
+        <Marquee className="mt-6 gap-4 px-5 sm:px-8">
+          {[...reviews, ...reviews].map((r, i) => (
+            <figure key={`${r.name}-${i}`} className="w-80 shrink-0 rounded-2xl border border-line bg-white p-5">
+              <div className="flex items-center justify-between">
+                <Stars rating={r.rating} />
+                <figcaption className="text-xs text-ink-soft">{r.when}</figcaption>
+              </div>
+              <blockquote className="mt-3 text-sm leading-relaxed text-ink">“{r.text}”</blockquote>
+              <p className="mt-3 text-sm font-semibold text-ink">{r.name}</p>
+            </figure>
+          ))}
+        </Marquee>
       </section>
 
       {/* Bakery footer + powered-by */}
