@@ -162,17 +162,17 @@
 ---------------------------------------------------------------------------- */
 .dark {
   color-scheme: dark;
-  --color-ink: #eaf0fb; /* primary text → light */
-  --color-ink-soft: #9fb0d0;
-  --color-cloud: #0c1635;
-  --color-mist: #16224a;
-  --color-line: rgba(255, 255, 255, 0.1);
+  --color-ink: #f1f5fd; /* primary text → brighter for legibility */
+  --color-ink-soft: #adbcd8; /* muted text, lifted for contrast */
+  --color-cloud: #0f1c44; /* alternating sections, clearly above the body */
+  --color-mist: #1e2e5e; /* icon chips / tints, pop against cards */
+  --color-line: rgba(255, 255, 255, 0.16); /* visible hairlines */
 }
 .dark body {
-  background-color: #0a1330;
+  background-color: #080f28; /* deepest surface */
 }
 .dark .bg-white {
-  background-color: #111e3f;
+  background-color: #152250; /* cards sit above cloud + body */
 }
 .dark .text-brand,
 .dark .text-brand-strong {
