@@ -25,7 +25,7 @@ const team: Member[] = [
     blurb:
       "Keeps the platform behind frontdoorapp.co fast, secure, and online around the clock, from Kubernetes and CI/CD to observability and databases at scale.",
     photo: "/team/kenji.png",
-    tags: ["Kubernetes", "Observability", "Automation"],
+    tags: ["Reliable uptime", "Scales with demand", "Seamless updates"],
   },
   {
     slug: "cheyserr",
