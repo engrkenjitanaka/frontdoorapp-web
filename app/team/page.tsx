@@ -12,11 +12,21 @@ type Member = {
   name: string;
   role: string;
   blurb: string;
-  photo: string;
+  photo?: string;
+  initials?: string;
   tags: string[];
 };
 
 const team: Member[] = [
+  {
+    slug: "kenji",
+    name: "Kenji Tanaka",
+    role: "Senior Site Reliability Engineer",
+    blurb:
+      "Keeps the platform behind frontdoorapp.co fast, secure, and online around the clock, from Kubernetes and CI/CD to observability and databases at scale.",
+    photo: "/team/kenji.png",
+    tags: ["Kubernetes", "Observability", "Automation"],
+  },
   {
     slug: "cheyserr",
     name: "Cheyserr Alejado",
@@ -56,13 +66,23 @@ export default function TeamPage() {
                 className="group flex flex-col rounded-3xl border border-line bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-xl hover:shadow-ink/5 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand/20"
               >
                 <div className="flex items-center gap-4">
-                  <span className="relative inline-flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-full bg-mist ring-1 ring-line">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={m.photo}
-                      alt={m.name}
-                      className="h-full w-full scale-110 object-cover object-top"
-                    />
+                  <span
+                    className={`relative inline-flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-full ring-1 ring-line ${
+                      m.photo ? "bg-mist" : "bg-linear-to-br from-brand to-ink-deep"
+                    }`}
+                  >
+                    {m.photo ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={m.photo}
+                        alt={m.name}
+                        className="h-full w-full scale-110 object-cover object-top"
+                      />
+                    ) : (
+                      <span className="font-display text-2xl font-extrabold text-white">
+                        {m.initials}
+                      </span>
+                    )}
                   </span>
                   <div className="min-w-0">
                     <h2 className="font-display text-xl font-extrabold text-ink">{m.name}</h2>

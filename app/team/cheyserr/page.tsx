@@ -323,7 +323,8 @@ export default function CheyserrPage() {
 
       {/* CONTACT */}
       <section className="bg-ink-deep text-white">
-        <div className="reveal mx-auto max-w-3xl px-5 py-20 text-center sm:px-8">
+        <div className="reveal mx-auto max-w-5xl px-5 py-20 sm:px-8">
+          <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-bold uppercase tracking-widest text-brand-glow">Contact</p>
           <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Ready to get your time back?</h2>
           <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-white/70">
@@ -338,10 +339,11 @@ export default function CheyserrPage() {
               Download résumé {IconDownload}
             </a>
           </div>
-          <div className="mx-auto mt-14 grid max-w-2xl grid-cols-2 gap-8 border-t border-white/15 pt-10 text-left sm:grid-cols-4 sm:text-center">
+          </div>
+          <div className="mx-auto mt-14 grid max-w-4xl grid-cols-1 gap-x-8 gap-y-8 border-t border-white/15 pt-10 text-center sm:grid-cols-2 lg:grid-cols-4">
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-white/50">Email</p>
-              <a href="mailto:alejadocheyserr@gmail.com" className="mt-1.5 block text-sm text-white/90 transition hover:text-brand-glow">alejadocheyserr@gmail.com</a>
+              <a href="mailto:alejadocheyserr@gmail.com" className="mt-1.5 block break-words text-sm text-white/90 transition hover:text-brand-glow">alejadocheyserr@gmail.com</a>
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-white/50">Phone / WhatsApp</p>
