@@ -40,7 +40,7 @@ export function BookingForm() {
 
   if (done) {
     return (
-      <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6 text-center">
+      <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6 text-center dark:border-emerald-400/25 dark:bg-emerald-400/10">
         <div className="text-2xl" aria-hidden="true">
           ✅
         </div>

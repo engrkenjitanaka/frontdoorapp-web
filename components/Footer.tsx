@@ -11,7 +11,15 @@ export function Footer() {
             running, so you can focus on what you do best.
           </p>
         </div>
-        <p className="text-sm text-white/50">© 2026 frontdoorapp.co</p>
+        <div className="flex flex-col gap-2 text-sm sm:items-end">
+          <a
+            href="/team"
+            className="font-medium text-white/70 transition-colors hover:text-white"
+          >
+            Meet the team
+          </a>
+          <p className="text-white/50">© 2026 frontdoorapp.co</p>
+        </div>
       </div>
     </footer>
   );

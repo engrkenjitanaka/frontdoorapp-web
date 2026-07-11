@@ -181,7 +181,7 @@ export function Menu() {
               autoFocus
               onClick={() => setSelected(null)}
               aria-label="Close"
-              className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-ink shadow-md backdrop-blur transition hover:bg-white"
+              className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-ink-deep shadow-md backdrop-blur transition hover:bg-white"
             >
               ✕
             </button>

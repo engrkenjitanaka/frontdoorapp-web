@@ -179,24 +179,6 @@
   color: var(--color-brand-glow);
 }
 
-/* The /demo page is a customer's own site — keep it light regardless of the toggle. */
-.force-light {
-  color-scheme: light;
-  --color-ink: #0f1f47;
-  --color-ink-soft: #41507a;
-  --color-cloud: #f6f8fc;
-  --color-mist: #eef3ff;
-  --color-line: #e6ebf4;
-  background-color: #ffffff;
-}
-.force-light .bg-white {
-  background-color: #ffffff;
-}
-.force-light .text-brand,
-.force-light .text-brand-strong {
-  color: var(--color-brand);
-}
-
 /* ---------- effects ---------- */
 body {
   transition: background-color 0.3s ease, color 0.3s ease;

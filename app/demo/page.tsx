@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { BookingForm } from "@/components/demo/BookingForm";
 import { Menu } from "@/components/demo/Menu";
 import { OpenStatus } from "@/components/demo/OpenStatus";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const metadata: Metadata = {
   title: "Bella’s Bakery · a live frontdoorapp.co example",
@@ -51,21 +52,24 @@ const nav = [
 
 export default function DemoPage() {
   return (
-    <div id="top" className="force-light text-ink">
+    <div id="top" className="text-ink">
       {/* "this is a demo" chrome */}
       <div className="bg-ink-deep text-white">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-5 py-2 text-xs sm:px-8">
           <span>
             🚪 A live example built &amp; run by <strong>frontdoorapp.co</strong>
           </span>
-          <a href="/" className="shrink-0 font-semibold underline-offset-2 hover:underline">
-            ← Back to frontdoorapp.co
-          </a>
+          <div className="flex shrink-0 items-center gap-3">
+            <ThemeToggle />
+            <a href="/" className="font-semibold underline-offset-2 hover:underline">
+              ← Back to frontdoorapp.co
+            </a>
+          </div>
         </div>
       </div>
 
       {/* Bella's own site nav */}
-      <header className="sticky top-0 z-40 border-b border-line bg-white/90 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-line bg-white/90 backdrop-blur-md dark:bg-[#0a1330]/85">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-3 sm:px-8">
           <a href="#top" className="font-display text-lg font-extrabold tracking-tight text-ink">
             Bella’s Bakery
@@ -79,7 +83,7 @@ export default function DemoPage() {
           </nav>
           <a
             href="#book"
-            className="inline-flex h-9 items-center rounded-lg bg-ink px-3.5 text-sm font-semibold text-white transition hover:bg-ink-deep"
+            className="inline-flex h-9 items-center rounded-lg bg-ink px-3.5 text-sm font-semibold text-white transition hover:bg-ink-deep dark:bg-brand dark:hover:bg-brand-strong"
           >
             Book a table
           </a>
@@ -123,7 +127,7 @@ export default function DemoPage() {
               </a>
               <a
                 href="#menu"
-                className="inline-flex h-11 items-center justify-center rounded-xl bg-white/90 px-5 text-sm font-semibold text-ink backdrop-blur transition hover:bg-white"
+                className="inline-flex h-11 items-center justify-center rounded-xl bg-white/90 px-5 text-sm font-semibold text-ink-deep backdrop-blur transition hover:bg-white"
               >
                 View menu
               </a>
