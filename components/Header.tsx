@@ -9,7 +9,7 @@ const navLinks = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-line/70 bg-white/80 backdrop-blur-md transition-colors dark:bg-[#0a1330]/85">
+    <header className="sticky top-0 z-50 border-b border-line/70 bg-white/80 backdrop-blur-md transition-colors dark:bg-[#0b0e14]/85">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
         <a
           href="#top"

@@ -53,7 +53,7 @@ export const metadata: Metadata = {
         url: "/logo_banner.jpg",
         width: 1672,
         height: 941,
-        alt: "frontdoorapp.co · your business’s digital front door",
+        alt: "frontdoorapp.co · your business’s digital frontdoor",
       },
     ],
   },

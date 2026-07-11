@@ -160,19 +160,22 @@
    like bg-cloud / text-ink-soft / border-line follow automatically). `white`
    is literal, so bg-white is handled explicitly.
 ---------------------------------------------------------------------------- */
+/* Calm, low-saturation cool-slate dark theme (easier on the eyes than the
+   old saturated navy). Elevation: bands < body < cloud < cards < chips. */
 .dark {
   color-scheme: dark;
-  --color-ink: #f1f5fd; /* primary text → brighter for legibility */
-  --color-ink-soft: #adbcd8; /* muted text, lifted for contrast */
-  --color-cloud: #0f1c44; /* alternating sections, clearly above the body */
-  --color-mist: #1e2e5e; /* icon chips / tints, pop against cards */
-  --color-line: rgba(255, 255, 255, 0.16); /* visible hairlines */
+  --color-ink: #e6e9f0; /* soft off-white, not pure white */
+  --color-ink-soft: #98a2b3; /* muted slate for secondary text */
+  --color-ink-deep: #0b0e14; /* deepest bands (hero/contact/footer) */
+  --color-cloud: #141924; /* alternating sections, above the body */
+  --color-mist: #1e2530; /* icon chips / tints */
+  --color-line: rgba(255, 255, 255, 0.1); /* soft hairlines */
 }
 .dark body {
-  background-color: #080f28; /* deepest surface */
+  background-color: #0e121a; /* base surface */
 }
 .dark .bg-white {
-  background-color: #152250; /* cards sit above cloud + body */
+  background-color: #181d27; /* cards, gently elevated above sections */
 }
 .dark .text-brand,
 .dark .text-brand-strong {

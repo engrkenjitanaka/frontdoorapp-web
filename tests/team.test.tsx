@@ -15,7 +15,7 @@ describe("Footer", () => {
 describe("/team page", () => {
   it("shows the intro heading", () => {
     render(<TeamPage />);
-    expect(screen.getByRole("heading", { name: /Meet the people behind your front door/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /Meet the people behind your frontdoor/i })).toBeInTheDocument();
   });
 
   it("has a Cheyserr Alejado card linking to /team/cheyserr", () => {

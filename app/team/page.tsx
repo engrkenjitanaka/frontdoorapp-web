@@ -46,7 +46,7 @@ export default function TeamPage() {
         <div className="reveal mx-auto max-w-6xl px-5 py-16 text-center sm:px-8 sm:py-24">
           <p className="text-sm font-bold uppercase tracking-widest text-brand">Our team</p>
           <h1 className="mx-auto mt-3 max-w-3xl text-4xl font-extrabold text-ink sm:text-5xl">
-            Meet the people behind your front door.
+            Meet the people behind your frontdoor.
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
             frontdoorapp.co is a done-for-you service, which means real specialists do the work.

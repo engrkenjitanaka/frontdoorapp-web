@@ -75,7 +75,7 @@ const certGroups = [
   {
     org: "Amazon Web Services",
     items: [
-      { name: "Solutions Architect – Professional", url: "https://www.credly.com/users/engrkenjitanaka/badges" },
+      { name: "Solutions Architect – Professional", url: "https://www.credly.com/badges/383d210b-95e5-40f4-959b-c73508fe9282" },
       { name: "Solutions Architect – Associate", url: "https://www.credly.com/badges/b292d988-21bc-45f9-9d50-0d097df484da" },
       { name: "SysOps Administrator – Associate", url: "https://www.credly.com/badges/79745881-c9eb-4cb6-b3ad-c721e7524ac0" },
       { name: "Developer – Associate", url: "https://www.credly.com/badges/38593f7b-7ff6-4530-a08e-cf172d7973a2" },
@@ -86,7 +86,7 @@ const certGroups = [
     org: "HashiCorp",
     items: [
       { name: "Terraform Associate", url: "https://www.credly.com/badges/a88088d1-eb80-4957-a836-e441bf4a50be" },
-      { name: "Vault Associate", url: "https://www.credly.com/users/engrkenjitanaka/badges" },
+      { name: "Vault Associate", url: "https://www.credly.com/badges/38a92390-af1c-45c8-bd6d-bee97a39dae4" },
     ],
   },
   {
@@ -128,7 +128,7 @@ export default function KenjiPage() {
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
                 Hi, I’m <span className="font-semibold text-brand">Kenji</span>, the site reliability engineer behind frontdoorapp.co. While the team
                 builds your website, inbox, and social presence, I keep the platform underneath it
-                fast, secure, and online around the clock, so your front door never has an off day.
+                fast, secure, and online around the clock, so your frontdoor never has an off day.
                 Automate the toil, measure everything, stay calm under load: to me, SRE isn’t a job
                 title, it’s how a platform earns trust.
               </p>
@@ -241,7 +241,7 @@ export default function KenjiPage() {
               presence will stay live on autopilot, someone has to make that true. I keep the
               platform behind it{" "}
               <strong className="font-semibold text-ink">automated, observable, and calm under load</strong>,
-              so every customer’s front door is open when theirs come knocking.
+              so every customer’s frontdoor is open when theirs come knocking.
             </p>
           </div>
           <div className="reveal grid gap-4 self-start">

@@ -69,7 +69,7 @@ export default function DemoPage() {
       </div>
 
       {/* Bella's own site nav */}
-      <header className="sticky top-0 z-40 border-b border-line bg-white/90 backdrop-blur-md dark:bg-[#0a1330]/85">
+      <header className="sticky top-0 z-40 border-b border-line bg-white/90 backdrop-blur-md dark:bg-[#0b0e14]/85">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-3 sm:px-8">
           <a href="#top" className="font-display text-lg font-extrabold tracking-tight text-ink">
             Bella’s Bakery
