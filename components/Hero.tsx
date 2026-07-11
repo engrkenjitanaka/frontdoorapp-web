@@ -25,7 +25,7 @@ export function Hero() {
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
             The managed digital presence for businesses.{" "}
             <span className="font-semibold text-ink">Set up for you, run on autopilot.</span>{" "}
-            We build your website, social media, business email, reviews, and content into one
+            We build your website, social media, business email, reviews, and content into one{" "}
             <span className="font-semibold text-brand">frontdoor</span>, then keep it all running.
           </p>
 

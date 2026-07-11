@@ -59,12 +59,9 @@ export default function DemoPage() {
           <span>
             🚪 A live example built &amp; run by <strong>frontdoorapp.co</strong>
           </span>
-          <div className="flex shrink-0 items-center gap-3">
-            <ThemeToggle />
-            <a href="/" className="font-semibold underline-offset-2 hover:underline">
-              ← Back to frontdoorapp.co
-            </a>
-          </div>
+          <a href="/" className="shrink-0 font-semibold underline-offset-2 hover:underline">
+            ← Back to frontdoorapp.co
+          </a>
         </div>
       </div>
 
@@ -81,12 +78,15 @@ export default function DemoPage() {
               </a>
             ))}
           </nav>
-          <a
-            href="#book"
-            className="inline-flex h-9 items-center rounded-lg bg-ink px-3.5 text-sm font-semibold text-white transition hover:bg-ink-deep dark:bg-brand dark:hover:bg-brand-strong"
-          >
-            Book a table
-          </a>
+          <div className="flex items-center gap-2.5">
+            <ThemeToggle />
+            <a
+              href="#book"
+              className="inline-flex h-9 items-center rounded-lg bg-ink px-3.5 text-sm font-semibold text-white transition hover:bg-ink-deep dark:bg-brand dark:hover:bg-brand-strong"
+            >
+              Book a table
+            </a>
+          </div>
         </div>
       </header>
 
