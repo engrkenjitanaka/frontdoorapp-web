@@ -123,7 +123,7 @@ export default function CheyserrPage() {
                 communication, I keep your daily operations organized. Delegate the details to me,
                 and get your time back to focus on the big picture.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row [&>a]:w-full sm:[&>a]:w-auto">
                 <a href={MAILTO} className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-brand px-6 text-sm font-semibold text-white shadow-lg shadow-brand/25 transition hover:bg-brand-strong active:scale-[0.98]">
                   Book a discovery call {IconArrow}
                 </a>
@@ -331,7 +331,7 @@ export default function CheyserrPage() {
             Tell me what’s slipping through the cracks, and I’ll reply within one business day with
             how I’d handle it.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center [&>a]:w-full sm:[&>a]:w-auto">
             <a href={MAILTO} className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-brand px-6 text-sm font-semibold text-white shadow-lg shadow-brand/25 transition hover:bg-brand-strong active:scale-[0.98]">
               Book a discovery call {IconArrow}
             </a>

@@ -132,7 +132,7 @@ export default function KenjiPage() {
                 Automate the toil, measure everything, stay calm under load: to me, SRE isn’t a job
                 title, it’s how a platform earns trust.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row [&>a]:w-full sm:[&>a]:w-auto">
                 <a href={MAILTO} className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-brand px-6 text-sm font-semibold text-white shadow-lg shadow-brand/25 transition hover:bg-brand-strong active:scale-[0.98]">
                   Get in touch {IconArrow}
                 </a>
@@ -323,7 +323,7 @@ export default function KenjiPage() {
               Working on hard infrastructure, scaling, or reliability problems? I’m always up for a
               good systems conversation.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center [&>a]:w-full sm:[&>a]:w-auto">
               <a href={MAILTO} className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-brand px-6 text-sm font-semibold text-white shadow-lg shadow-brand/25 transition hover:bg-brand-strong active:scale-[0.98]">
                 Get in touch {IconArrow}
               </a>

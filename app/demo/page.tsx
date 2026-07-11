@@ -119,7 +119,7 @@ export default function DemoPage() {
                 </p>
               </div>
             </div>
-            <div className="mt-5 flex flex-wrap gap-3">
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row [&>a]:w-full sm:[&>a]:w-auto">
               <a
                 href="#book"
                 className="inline-flex h-11 items-center justify-center rounded-xl bg-brand px-5 text-sm font-semibold text-white shadow-lg shadow-brand/30 transition hover:bg-brand-strong"
