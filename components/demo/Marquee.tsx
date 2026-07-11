@@ -6,8 +6,11 @@ import { useEffect, useRef } from "react";
  * Auto-scrolling horizontal strip that is ALSO manually scrollable:
  * - touch / trackpad swipe scrolls natively (touch-action: pan-x)
  * - click-and-drag scrolls with the mouse
- * - press and hold pauses the auto-scroll (no pause on hover)
- * Children should be passed already duplicated (two copies) for a seamless loop.
+ * - press-and-hold pauses the auto-scroll (no pause on hover)
+ * Auto-scroll backs off whenever the user is interacting or the strip is still
+ * being scrolled (incl. touch momentum), then resumes once motion goes idle, so
+ * it never fights the user's input. Children should be passed already duplicated
+ * (two copies) for a seamless loop.
  */
 export function Marquee({
   children,
@@ -19,7 +22,8 @@ export function Marquee({
   speed?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const paused = useRef(false);
+  const holding = useRef(false);
+  const idleUntil = useRef(0);
   const drag = useRef({ active: false, startX: 0, startScroll: 0 });
 
   useEffect(() => {
@@ -33,11 +37,14 @@ export function Marquee({
     // sub-pixel delta each frame would round away and never advance.
     let pos = el.scrollLeft;
     let applied = el.scrollLeft;
+
     const tick = (t: number) => {
       const dt = last ? t - last : 0;
       last = t;
-      if (!paused.current) {
-        if (Math.abs(el.scrollLeft - applied) > 2) pos = el.scrollLeft; // user scrolled
+      const busy = holding.current || t < idleUntil.current;
+      if (busy) {
+        pos = el.scrollLeft; // user is in control; stay in sync, don't move
+      } else {
         const half = el.scrollWidth / 2;
         pos += speed * (dt / 1000);
         if (half > 0 && pos >= half) pos -= half;
@@ -47,11 +54,20 @@ export function Marquee({
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+
+    // A scroll we didn't produce (native swipe / momentum) → back off briefly.
+    const onScroll = () => {
+      if (Math.abs(el.scrollLeft - applied) > 2) idleUntil.current = performance.now() + 600;
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      el.removeEventListener("scroll", onScroll);
+    };
   }, [speed]);
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    paused.current = true; // hold to stop
+    holding.current = true; // hold to stop
     if (e.pointerType === "mouse") {
       const el = ref.current!;
       drag.current = { active: true, startX: e.clientX, startScroll: el.scrollLeft };
@@ -64,7 +80,8 @@ export function Marquee({
   };
   const release = () => {
     drag.current.active = false;
-    paused.current = false;
+    holding.current = false;
+    idleUntil.current = performance.now() + 600; // let momentum settle before resuming
   };
 
   return (
