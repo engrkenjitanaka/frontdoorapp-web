@@ -79,7 +79,7 @@ describe("/team/cheyserr profile", () => {
 describe("/team/kenji profile", () => {
   it("renders the hero headline and all six services", () => {
     render(<KenjiPage />);
-    expect(screen.getByRole("heading", { name: /Your front door stays open/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /Your frontdoor stays open/i })).toBeInTheDocument();
     for (const title of [
       "Reliability & SRE",
       "Kubernetes & Containers",

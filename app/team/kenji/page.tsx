@@ -122,11 +122,11 @@ export default function KenjiPage() {
                 Senior Site Reliability Engineer
               </p>
               <h1 className="mt-4 text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
-                Your front door stays open.{" "}
+                Your frontdoor stays open.{" "}
                 <span className="text-brand">Reliably, at any scale.</span>
               </h1>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
-                Hi, I’m Kenji, the site reliability engineer behind frontdoorapp.co. While the team
+                Hi, I’m <span className="font-semibold text-brand">Kenji</span>, the site reliability engineer behind frontdoorapp.co. While the team
                 builds your website, inbox, and social presence, I keep the platform underneath it
                 fast, secure, and online around the clock, so your front door never has an off day.
                 Automate the toil, measure everything, stay calm under load: to me, SRE isn’t a job
@@ -151,7 +151,7 @@ export default function KenjiPage() {
                 </div>
               </div>
               <p className="mx-auto mt-5 max-w-xs text-center text-sm text-ink-soft">
-                The uptime you never have to think about.
+                The reason your site never goes down at 2am.
               </p>
             </div>
           </div>
@@ -263,7 +263,7 @@ export default function KenjiPage() {
         <div className="reveal mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
           <div className="max-w-2xl">
             <p className="text-sm font-bold uppercase tracking-widest text-brand">Reliability</p>
-            <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">What that means for your front door</h2>
+            <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">What that means for your <span className="text-brand">frontdoor</span></h2>
             <p className="mt-4 text-lg leading-relaxed text-ink-soft">
               The reliability work is invisible when it’s done right. Here’s what it buys the
               businesses on frontdoorapp.co.
@@ -287,7 +287,7 @@ export default function KenjiPage() {
           <div>
             <p className="text-sm font-bold uppercase tracking-widest text-brand">Certifications</p>
             <h2 className="mt-3 text-2xl font-extrabold text-ink sm:text-3xl">Verified credentials</h2>
-            <p className="mt-3 text-sm leading-relaxed text-ink-soft">Each badge links to its Credly verification.</p>
+            <p className="mt-3 text-sm leading-relaxed text-ink-soft">Cloud, infrastructure, and networking credentials from AWS, HashiCorp, Cisco, and Microsoft, each verifiable on Credly.</p>
           </div>
           <div className="space-y-4">
             {certGroups.map((group) => (

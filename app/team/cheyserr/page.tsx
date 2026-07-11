@@ -118,7 +118,7 @@ export default function CheyserrPage() {
                 <span className="text-brand">Drive the growth.</span>
               </h1>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
-                Hi, I’m Cheyserr! I provide specialized administrative support for healthcare and
+                Hi, I’m <span className="font-semibold text-brand">Cheyserr</span>! I provide specialized administrative support for healthcare and
                 service-based businesses. From CRM updates and lead follow-ups to smooth client
                 communication, I keep your daily operations organized. Delegate the details to me,
                 and get your time back to focus on the big picture.
