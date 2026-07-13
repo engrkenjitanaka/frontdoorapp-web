@@ -74,7 +74,7 @@ const aboutPoints = [
 
 const coreTools = [
   { logo: "ghl.png", name: "GoHighLevel", sub: "CRM & funnels" },
-  { logo: "boldtrail.png", name: "BoldTrail", sub: "CRM" },
+  { logo: "mailchimp.svg", name: "Mailchimp", sub: "Email marketing" },
   { logo: "googleworkspace.png", name: "Google Workspace", sub: "Docs & ops" },
   { logo: "clickup.png", name: "ClickUp", sub: "Project mgmt" },
   { logo: "salesforce.svg", name: "Salesforce", sub: "CRM" },
