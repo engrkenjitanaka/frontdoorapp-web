@@ -68,7 +68,7 @@ const experience = [
 
 const aboutPoints = [
   { icon: IconHeart, title: "Healthcare-fluent", body: "A nursing background means patient-facing language, privacy, and sensitive information are second nature, not a learning curve." },
-  { icon: IconBolt, title: "Fast tool learner", body: "GoHighLevel, BoldTrail, ClickUp, Salesforce, and whatever your stack is. I adapt to your systems, not the other way around." },
+  { icon: IconBolt, title: "Fast tool learner", body: "GoHighLevel, Mailchimp, ClickUp, Salesforce, and whatever your stack is. I adapt to your systems, not the other way around." },
   { icon: IconCheck, title: "Trainer’s discipline", body: "I’ve onboarded and coached whole teams, so I document processes as I work. You get SOPs, not mystery workflows." },
 ];
 
@@ -81,7 +81,7 @@ const coreTools = [
 ];
 
 const toolkit = [
-  { cat: "CRM, Funnels & Marketing", pills: ["GoHighLevel", "BoldTrail CRM", "Salesforce", "ActiveCampaign", "Mailchimp", "Kajabi", "Thinkific"] },
+  { cat: "CRM, Funnels & Marketing", pills: ["GoHighLevel", "Salesforce", "ActiveCampaign", "Mailchimp", "Kajabi", "Thinkific"] },
   { cat: "Website & Content", pills: ["WordPress", "Elementor", "GoDaddy Builder", "Wix", "Canva", "CapCut"] },
   { cat: "Productivity & Docs", pills: ["Google Workspace", "Microsoft 365", "Slack", "Zoom", "Loom", "ClickUp"] },
   { cat: "Ads & Social", pills: ["Meta Ads Manager", "TikTok Ads Manager", "Facebook & Instagram"] },
@@ -92,7 +92,7 @@ const toolkit = [
 const faqs = [
   { q: "What hours do you work?", a: "US timezone hours, flexible to fit your schedule, whether that’s East Coast mornings or West Coast afternoons. We agree on core overlap hours during the discovery call." },
   { q: "Do you have real healthcare experience?", a: "Yes. A nursing background, social media management for a multi-specialty medical clinic, and a role hiring and training healthcare professionals as remote medical VAs. Patient-appropriate communication is second nature." },
-  { q: "What if you don’t know our tools?", a: "I’ve worked across GoHighLevel, BoldTrail, Salesforce, ClickUp, and more, and I pick up new systems quickly on my own time. If your stack is unusual, I’ll learn it during the trial week at no risk to you." },
+  { q: "What if you don’t know our tools?", a: "I’ve worked across GoHighLevel, Mailchimp, Salesforce, ClickUp, and more, and I pick up new systems quickly on my own time. If your stack is unusual, I’ll learn it during the trial week at no risk to you." },
   { q: "Part-time or full-time?", a: "Both. Most clients start part-time with a defined task list and expand as trust builds. Tell me what you need covered and we’ll shape the engagement around it." },
   { q: "How do we get started?", a: "Email me what’s slipping through the cracks. We’ll book a short discovery call, pick the first tasks to hand off, and start with a trial week so you can see the work before committing." },
 ];
